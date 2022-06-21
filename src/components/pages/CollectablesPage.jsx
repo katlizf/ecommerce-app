@@ -2,7 +2,7 @@ import React from 'react'
 import FilterBar from '../FilterBar'
 import ProductCard from '../products/ProductCard'
 
-function ApparelPage() {
+function CollectablesPage() {
     return (
         <div>
             <FilterBar />
@@ -11,4 +11,4 @@ function ApparelPage() {
     )
 }
 
-export default ApparelPage
+export default CollectablesPage

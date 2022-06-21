@@ -2,7 +2,9 @@ import React from 'react'
 
 function Footer() {
     return (
-        <div>Footer</div>
+        <div>
+            <h4>© 2022 Katherine E. Anderson-Faber, All right Reserved</h4>
+        </div>
     )
 }
 

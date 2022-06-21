@@ -10,8 +10,8 @@ function Navbar() {
             <Link to='/apparel'>
                 <button id='link-btn'>Apparel</button>
             </Link>
-            <Link to='/items'>
-                <button id='link-btn'>Memorabilia</button>
+            <Link to='/collectables'>
+                <button id='link-btn'>Collectables</button>
             </Link>
             <span>
                 <input placeholder='Search'></input>
