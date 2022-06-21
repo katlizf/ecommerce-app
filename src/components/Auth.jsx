@@ -1,5 +1,6 @@
 import React from 'react'
 import {useFormik} from 'formik'
+import {Redirect} from 'react-router-dom'
 
 function LoginForm() {
 
@@ -8,8 +9,13 @@ function LoginForm() {
             username:'',
             password:'',
             register: false
+        },
+        onSubmit: values => {
+            
         }
     })
+
+    
 
     return (
         <div>

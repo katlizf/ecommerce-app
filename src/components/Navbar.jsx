@@ -1,7 +1,15 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
+import Auth from './Auth'
 
 function Navbar() {
+
+    const [loginDisplay, setLoginDisplay] = useState(false)
+
+    const toggleLogin = e => {
+        setLoginDisplay(loginDisplay => !loginDisplay)
+    }
+
     return (
         <div>
             <Link to='/'>
@@ -19,7 +27,8 @@ function Navbar() {
             <Link to='/cart'>
                 <button id='link-btn'>Cart</button>
             </Link>
-            <button>Login</button>
+            <button onClick={toggleLogin}>Login</button>
+            {loginDisplay && <Auth />}
         </div>
     )
 }
