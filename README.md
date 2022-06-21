@@ -14,4 +14,4 @@ An anime e-commerce app where users can create an account, browse items, and pur
 
 * Item and apparl info
 * User info
-* Cart info# ecommerce-app
+* Cart info
