@@ -19,7 +19,7 @@ function Navbar() {
             <Link to='/cart'>
                 <button id='link-btn'>Cart</button>
             </Link>
-            <button>Login/Register</button>
+            <button>Login</button>
         </div>
     )
 }
