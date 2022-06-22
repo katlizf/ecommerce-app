@@ -16,13 +16,19 @@
         @apply flex flex-row flex-wrap justify-end pr-32 py-6;
     }
     .product-card {
-        @apply w-72 p-6;
+        @apply w-72 py-6 mx-9;
     }
     .product-img {
-        @apply w-64 h-64;
+        @apply w-64 h-72;
+    }
+    .prod-desc {
+        @apply h-auto
     }
     .cart-btn {
         @apply bg-orange;
+    }
+    .card-row {
+        @apply flex flex-row justify-between;
     }
 }
 

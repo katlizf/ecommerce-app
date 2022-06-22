@@ -14,7 +14,13 @@ module.exports = {
         'orange': '#FF7C1F',
         'red': '#E01600',
         'purple': '#783F8E',
-        'yellow': '#F4E409'
+        'yellow': '#F4E409',
+        'black': '#050000',
+        'white': '#ffffff',
+        'grey': '#949494'
+    },
+    backgroundImage: {
+        'home': "url('../images/wallpaper-multi-character.png')"
     }
   },
   plugins: [],

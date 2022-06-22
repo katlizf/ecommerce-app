@@ -13,11 +13,15 @@ function ApparelCard() {
         <div className='card-container'>
             {allApparel.map(apparel =>
                 <div className='product-card'>
-                    <img src={apparel.image} alt={apparel.product_name} className='product-img'/>
+                    <img src={apparel.image} alt={apparel.product_name} className='product-img' />
+                    <div className='prod-desc'>
                     <h2>{apparel.product_name}</h2>
                     <h3>{apparel.description}</h3>
-                    <h3>${apparel.price}</h3>
-                    <button className='cart-btn'>Add to Cart</button>
+                    <div className='card-row'>
+                        <h3>${apparel.price}</h3>
+                        <button className='cart-btn'>Add to Cart</button>
+                    </div>
+                    </div>
                 </div>)}
         </div>
     )

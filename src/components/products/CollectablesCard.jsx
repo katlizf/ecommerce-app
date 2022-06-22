@@ -12,14 +12,14 @@ function CollectablesCard() {
     }, [])
 
     return (
-        <div>
+        <div className='card-container'>
             {allCollectables.map(collectable =>
-                <div>
-                    <img src={collectable.image} alt={collectable.product_name} />
+                <div className='product-card'>
+                    <img src={collectable.image} alt={collectable.product_name} className='product-img' />
                     <h2>{collectable.product_name}</h2>
                     <h3>{collectable.description}</h3>
                     <h3>${collectable.price}</h3>
-                    <button>Add to Cart</button>
+                    <button className='cart-btn'>Add to Cart</button>
                 </div>
                 )}
 
