@@ -1,12 +1,12 @@
 import React from 'react'
 import FilterBar from '../FilterBar'
-import ProductCard from '../products/ProductCard'
+import CollectablesCard from '../products/CollectablesCard'
 
 function CollectablesPage() {
     return (
         <div>
             <FilterBar />
-            <ProductCard />
+            <CollectablesCard />
         </div>
     )
 }

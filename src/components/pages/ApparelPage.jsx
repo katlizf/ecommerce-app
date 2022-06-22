@@ -1,12 +1,15 @@
 import React from 'react'
 import FilterBar from '../FilterBar'
-import ProductCard from '../products/ProductCard'
+import ApparelCard from '../products/ApparelCard'
 
 function ApparelPage() {
+
+    
+
     return (
         <div>
             <FilterBar />
-            <ProductCard />
+            <ApparelCard />
         </div>
     )
 }
