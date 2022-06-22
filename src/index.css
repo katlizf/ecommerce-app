@@ -12,11 +12,14 @@
 }
 
 @layer components {
+    .card-container {
+        @apply flex flex-row flex-wrap justify-end pr-32 py-6;
+    }
     .product-card {
-        @apply w-72;
+        @apply w-72 p-6;
     }
     .product-img {
-        @apply w-36;
+        @apply w-64 h-64;
     }
     .cart-btn {
         @apply bg-orange;

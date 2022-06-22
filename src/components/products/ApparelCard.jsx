@@ -10,7 +10,7 @@ function ApparelCard() {
     }, [])
 
     return (
-        <div>
+        <div className='card-container'>
             {allApparel.map(apparel =>
                 <div className='product-card'>
                     <img src={apparel.image} alt={apparel.product_name} className='product-img'/>

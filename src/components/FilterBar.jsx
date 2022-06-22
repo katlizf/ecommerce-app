@@ -16,7 +16,7 @@ function FilterBar() {
     })
 
     return (
-        <div>
+        <div className='flex justify-end pr-24 pt-28'>
             <h2>Search: <input></input></h2>
             <select>
                 <option defaultValue disabled selected>Filter by Anime</option>

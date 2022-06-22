@@ -11,7 +11,7 @@ function Navbar() {
     }
 
     return (
-        <div>
+        <div className='flex justify-end pr-20 w-23'>
             <Link to='/'>
                 <button id='link-btn'>Home</button>
             </Link>
