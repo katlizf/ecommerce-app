@@ -19,7 +19,6 @@ function CollectablesCard() {
                     <h2>{collectable.product_name}</h2>
                     <h3>{collectable.description}</h3>
                     <h3>${collectable.price}</h3>
-                    <button>Add to Cart</button>
                 </div>
                 )}
 

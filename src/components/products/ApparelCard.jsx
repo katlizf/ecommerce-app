@@ -18,7 +18,6 @@ function ApparelCard() {
                     <h3>{apparel.description}</h3>
                     <h3>${apparel.price}</h3>
                 </div>)}
-                <button>Add to Cart</button>
         </div>
     )
 }
