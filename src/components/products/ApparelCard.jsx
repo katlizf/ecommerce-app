@@ -12,11 +12,12 @@ function ApparelCard() {
     return (
         <div>
             {allApparel.map(apparel =>
-                <div>
-                    <img src={apparel.image} alt={apparel.product_name} />
+                <div className='product-card'>
+                    <img src={apparel.image} alt={apparel.product_name} className='product-img'/>
                     <h2>{apparel.product_name}</h2>
                     <h3>{apparel.description}</h3>
                     <h3>${apparel.price}</h3>
+                    <button className='cart-btn'>Add to Cart</button>
                 </div>)}
         </div>
     )
