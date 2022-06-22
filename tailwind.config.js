@@ -17,11 +17,16 @@ module.exports = {
         'yellow': '#F4E409',
         'black': '#050000',
         'white': '#ffffff',
-        'grey': '#949494'
+        'grey': '#949494',
+        'reddish-orange': '#F5653D'
     },
+    textStrokeColor: theme => theme('borderColor'),
+    textStrokeWidth: theme => theme('borderWidth'),
     backgroundImage: {
         'home': "url('../images/wallpaper-multi-character.png')"
     }
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss-text-fill-stroke')()
+  ],
 }
