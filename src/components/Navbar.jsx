@@ -11,7 +11,7 @@ function Navbar() {
     }
 
     return (
-        <div className='flex justify-end items-center h-24 bg-orange'>
+        <div className='flex justify-end items-center h-24 bg-orange pr-20'>
             <Link to='/'>
                 <button id='link-btn'>Home</button>
             </Link>
@@ -19,15 +19,12 @@ function Navbar() {
                 <button id='link-btn'>Apparel</button>
             </Link>
             <Link to='/collectables'>
-                <button id='link-btn'>Collectables</button>
+                <button id='link-btn-lg'>Collectables</button>
             </Link>
-            <span>
-                <input placeholder='Search'></input>
-            </span>
             <Link to='/cart'>
                 <button id='link-btn'>Cart</button>
             </Link>
-            <button onClick={toggleLogin}>Login</button>
+            <button id='link-btn' onClick={toggleLogin}>Login</button>
             {loginDisplay && <Auth />}
         </div>
     )
