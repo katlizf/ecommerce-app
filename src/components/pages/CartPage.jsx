@@ -1,5 +1,5 @@
 import React from 'react'
-import CartItemCard from '../products/CartItemCard'
+import CartItemCard from '../product-cards/CartItemCard'
 
 function CartPage() {
     return (

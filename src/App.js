@@ -5,6 +5,7 @@ import ApparelPage from './components/pages/ApparelPage'
 import CollectablesPage from './components/pages/CollectablesPage'
 import CartPage from './components/pages/CartPage'
 import Navbar from "./components/Navbar"
+import Footer from "./components/Footer"
 
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
                 <Route path='/collectables' element={<CollectablesPage />} />
                 <Route path='/cart' element={<CartPage />} />
             </Routes>
+            <Footer />
         </div>
     )
 }

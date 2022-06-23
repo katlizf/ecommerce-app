@@ -1,15 +1,20 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
+import axios from 'axios'
 import FilterBar from '../FilterBar'
-import ApparelCard from '../products/ApparelCard'
+import ProductCard from '../product-cards/ProductCard'
 
 function ApparelPage() {
 
-    
+    const [allApparel, setAllApparel] = useState([])
+
+    useEffect(() => {
+        axios.get(`http://localhost:4000/api/getApparel`).then(res => setAllApparel(res.data))
+    }, [])
 
     return (
         <div>
             <FilterBar />
-            <ApparelCard />
+            {allApparel.map(data => <ProductCard data={data}/>)}
         </div>
     )
 }

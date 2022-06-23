@@ -16,7 +16,7 @@
         @apply flex flex-row flex-wrap justify-end pr-32 py-6;
     }
     .product-card {
-        @apply w-72 py-6 mx-9;
+        @apply w-72 py-10 mx-9;
     }
     .product-img {
         @apply w-64 h-72;
@@ -25,10 +25,16 @@
         @apply h-auto
     }
     .cart-btn {
-        @apply bg-orange;
+        @apply bg-orange w-24 cursor-pointer;
     }
     .card-row {
         @apply flex flex-row justify-between;
+    }
+    #link-btn {
+        @apply w-28 border-x;
+    }
+    #link-btn-lg {
+        @apply w-max pr-5 pl-7 border-x;
     }
 }
 
