@@ -13,11 +13,11 @@ function FilterBar(props) {
     //     }
     // })
 
-    // useEffect(() => {
-    //     axios
-    //         .get('http://localhost:4000/api/getTitles')
-    //         .then(res => setAllTitles(res.data))
-    // })
+    useEffect(() => {
+        axios
+            .get('http://localhost:4000/api/getTitles')
+            .then(res => setAllTitles(res.data))
+    })
 
     const titleOptions = allTitles.map((title, index) => {
         return <option value={title.id}>{title.name}</option>
