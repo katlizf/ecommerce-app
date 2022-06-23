@@ -17,8 +17,10 @@ function FilterBar() {
 
     return (
         <div className='flex justify-end pr-24 pt-16'>
-            <h2>Search: <input></input></h2>
-            <select>
+            <div className='pr-12'>
+                <h2>Search: <input className='border-b-2'></input></h2>
+            </div>
+            <select className='border-2'>
                 <option defaultValue disabled selected>Filter by Anime</option>
                 {titleOptions}
             </select>
