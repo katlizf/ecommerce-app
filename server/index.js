@@ -31,7 +31,7 @@ app.get('/api/getCollectables', async (req, res) => {
 app.get('/api/getProduct/:id', async (req, res) => {
     let {id} = req.params
     let product = await sequelize.query(`
-        SELECT p.image, p.name, p.price FROM products
+        SELECT * FROM products
         WHERE id = ${id}`)
         res.status(200).send(product)
 })
@@ -43,6 +43,7 @@ app.get('/api/getAnimeProducts', async (req, res) => {
         WHERE products.id = anime.id`)
         res.status(200).send(animeProducts[0])
 })
+
 
 
 app.listen(PORT, () => console.log(`Server up on port ${PORT}`))

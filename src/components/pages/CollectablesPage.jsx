@@ -14,7 +14,9 @@ function CollectablesPage() {
     return (
         <div>
             <FilterBar />
-            {allCollectables.map(data => <ProductCard data={data}/>)}
+            <div className='card-container'>
+                {allCollectables.map(data => <ProductCard data={data}/>)}
+            </div>
         </div>
     )
 }

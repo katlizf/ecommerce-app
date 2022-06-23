@@ -1,15 +1,23 @@
 import axios from 'axios'
 import React, {useEffect, useState} from 'react'
 
-function FilterBar() {
+function FilterBar(props) {
 
     const [allTitles, setAllTitles] = useState([])
+    const [selected, setSelected] = useState('')
+    const {list, setList} = props
 
-    useEffect(() => {
-        axios
-            .get('http://localhost:4000/api/getTitles')
-            .then(res => setAllTitles(res.data))
-    })
+    // const listMapped = list.filter(item => {
+    //     if (selected) {
+    //         axios.get(`http://localhost:4000/api/getAnimeProducts`)
+    //     }
+    // })
+
+    // useEffect(() => {
+    //     axios
+    //         .get('http://localhost:4000/api/getTitles')
+    //         .then(res => setAllTitles(res.data))
+    // })
 
     const titleOptions = allTitles.map((title, index) => {
         return <option value={title.id}>{title.name}</option>
@@ -21,9 +29,10 @@ function FilterBar() {
                 <h2>Search: <input className='border-b-2'></input></h2>
             </div>
             <select className='border-2'>
-                <option defaultValue disabled selected>Filter by Anime</option>
+                <option defaultValue selected>Filter by Anime</option>
                 {titleOptions}
             </select>
+
         </div>
     )
 }
