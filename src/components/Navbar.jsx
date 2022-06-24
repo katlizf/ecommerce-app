@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
 import Auth from './Auth'
 
+
 function Navbar() {
 
     const [loginDisplay, setLoginDisplay] = useState(false)

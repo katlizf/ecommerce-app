@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 function CartItemCard({data}) {
 
     return (
@@ -9,6 +10,7 @@ function CartItemCard({data}) {
                 <h4>{data.product_name}</h4>
                 <h3>{data.price}</h3>
                 <h3>quantity</h3>
+                <button>Remove</button>
             </div>
         </div>
     )

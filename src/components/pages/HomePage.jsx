@@ -1,6 +1,7 @@
 import React from 'react'
 import background from '../../images/bleach-kisuke-urahara-wallpaper.jpg'
 
+
 function HomePage() {
     return (
         <div className='bg-black' style={{

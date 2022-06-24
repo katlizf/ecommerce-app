@@ -3,6 +3,7 @@ import axios from 'axios'
 import FilterBar from '../FilterBar'
 import ProductCard from '../product-cards/ProductCard'
 
+
 function CollectablesPage() {
 
     const [allCollectables, setAllCollectables] = useState([])
