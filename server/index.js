@@ -28,21 +28,37 @@ app.get('/api/getCollectables', async (req, res) => {
         res.status(200).send(allCollectables[0])
 })
 
-app.get('/api/getProduct/:id', async (req, res) => {
-    let {id} = req.params
-    let product = await sequelize.query(`
-        SELECT * FROM products
-        WHERE id = ${id}`)
-        res.status(200).send(product)
+app.post('/api/addToCart', async (req, res) => {
+    let {id} = req.body
+    const inCart = await sequelize.query(`
+        SELECT * FROM cart_items
+        WHERE product_number = ${id}`)
+
+    if (inCart[0].length === 0) { 
+        await sequelize.query(`
+            INSERT INTO cart_items (product_number)
+            VALUES (${id})`)
+            res.status(200)
+    } else {
+        res.send('This Product is already in your cart')
+    }
 })
 
-app.get('/api/getAnimeProducts', async (req, res) => {
-    let animeProducts = await sequelize.query(`
-        SELECT * FROM products
-        JOIN anime
-        WHERE products.id = anime.id`)
-        res.status(200).send(animeProducts[0])
+app.get('/api/getCartProducts', async (req, res) => {
+    let cartProducts = await sequelize.query(`
+        SELECT * FROM cart_items
+        JOIN products
+        ON cart_items.product_number = products.id`)
+        res.status(200).send(cartProducts[0])
 })
+
+// app.get('/api/getAnimeProducts', async (req, res) => {
+//     let animeProducts = await sequelize.query(`
+//         SELECT * FROM products
+//         JOIN anime
+//         WHERE products.id = anime.id`)
+//         res.status(200).send(animeProducts[0])
+// })
 
 
 
