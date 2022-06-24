@@ -1,20 +1,22 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import CartItemCard from '../product-cards/CartItemCard'
 
-function CartPage({data}) {
 
-    // const [cartItem, setCartItem] = useState([])
+function CartPage() {
 
-    // const addToCart = () => {
-    //     axios.get(`http://localhost:4000/api/getProduct/id`).then(res => setCartItem(res.data))
-    //     console.log(data)
-    // }
+    const [cartItem, setCartItem] = useState([])
+
+
+    useEffect(() => {
+        axios.get(`http://localhost:4000/api/getCartProducts`).then(res => setCartItem(res.data))
+    }, [])
 
     return (
         <div>
-            {/* {cartItem.map(data => <CartItemCard data={data} />)} */}
-            <CartItemCard />
+            <div>
+                {cartItem.map(data => <CartItemCard data={data}/>)}
+            </div>            
         </div>
     )
 }
