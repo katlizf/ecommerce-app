@@ -13,8 +13,8 @@ function CartPage() {
     }, [])
 
     return (
-        <div>
-            <div>
+        <div className='flex justify-center bg-light-grey'>
+            <div className='flex flex-col bg-white w-1/2'>
                 {cartItem.map(data => <CartItemCard data={data}/>)}
             </div>            
         </div>
