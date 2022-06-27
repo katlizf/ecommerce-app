@@ -28,6 +28,12 @@ app.get('/api/getCollectables', async (req, res) => {
         res.status(200).send(allCollectables[0])
 })
 
+app.get('/api/getPrice', async (req, res) => {
+    const price = await sequelize.query(`
+        SELECT products.price FROM products;`)
+        res.status(200).send(price[0])
+})
+
 app.post('/api/addToCart', async (req, res) => {
     let {id} = req.body
     const inCart = await sequelize.query(`
@@ -52,13 +58,13 @@ app.get('/api/getCartProducts', async (req, res) => {
         res.status(200).send(cartProducts[0])
 })
 
-// app.get('/api/getAnimeProducts', async (req, res) => {
-//     let animeProducts = await sequelize.query(`
-//         SELECT * FROM products
-//         JOIN anime
-//         WHERE products.id = anime.id`)
-//         res.status(200).send(animeProducts[0])
-// })
+app.get('/api/getAnimeProducts', async (req, res) => {
+    let animeProducts = await sequelize.query(`
+        SELECT * FROM products
+        JOIN anime
+        WHERE products.id = anime.id`)
+        res.status(200).send(animeProducts[0])
+})
 
 
 
