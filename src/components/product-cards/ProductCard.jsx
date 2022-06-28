@@ -2,12 +2,11 @@ import React from 'react'
 import axios from 'axios'
 
 
-function ProductCard({data, id, product, setAllApparel, allApparel}) {
+function ProductCard({data, product}) {
 
     const addToCart = product => {
         const body = {id: product.id, type: product.type}
         axios.post(`http://localhost:4000/api/addToCart`, body).then(res => res.data)
-        console.log(data)
     }
 
     return (
