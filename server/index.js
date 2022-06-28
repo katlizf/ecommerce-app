@@ -17,6 +17,8 @@ app.get('/api/getTitles', async (req, res) => {
 app.get('/api/getApparel', async (req, res) => {
     let allApparel = await sequelize.query(`
         SELECT * FROM products
+        JOIN anime
+        ON products.anime = anime.id
         WHERE type = 1`)
         res.status(200).send(allApparel[0])
 })
@@ -28,11 +30,21 @@ app.get('/api/getCollectables', async (req, res) => {
         res.status(200).send(allCollectables[0])
 })
 
-app.get('/api/getPrice', async (req, res) => {
-    const price = await sequelize.query(`
-        SELECT products.price FROM products;`)
-        res.status(200).send(price[0])
+// app.post('/api/findProduct', async (req, res) => {
+//     let {id} = req.body
+//     await sequelize.query(`
+//         SELECT * FROM cart_items c
+//         WHERE c_id = ${id};`)
+//         res.status(200)
+// })
+app.get('/api/findProduct', async (req, res) => {
+    let productInfo = await sequelize.query(`
+        SELECT cart_items.id, products.price FROM cart_items
+        JOIN products
+        ON cart_items.id = products.id;`)
+        res.status(200).send(productInfo)
 })
+
 
 app.post('/api/addToCart', async (req, res) => {
     let {id} = req.body
@@ -58,13 +70,15 @@ app.get('/api/getCartProducts', async (req, res) => {
         res.status(200).send(cartProducts[0])
 })
 
-app.get('/api/getAnimeProducts', async (req, res) => {
-    let animeProducts = await sequelize.query(`
-        SELECT * FROM products
-        JOIN anime
-        WHERE products.id = anime.id`)
-        res.status(200).send(animeProducts[0])
-})
+// app.get('/api/geSpecificProducts', async (req, res) => {
+//     let {id} = req.body
+//     let animeProducts = await sequelize.query(`
+//         SELECT * FROM products
+//         JOIN anime
+//         ON products.id = anime.id
+//         WHERE products.anime = ${id}`)
+//         res.status(200).send(animeProducts[0])
+// })
 
 
 

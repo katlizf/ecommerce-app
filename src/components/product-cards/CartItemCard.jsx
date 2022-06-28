@@ -1,26 +1,36 @@
 import React from 'react'
-import {useDispatch, connect} from 'react-redux'
-import {cartActions} from '../../store/cart-reducer'
+import axios from 'axios'
+import {useDispatch, useSelector} from 'react-redux'
+import {increase, decrease} from '../../store/cart-reducer'
 
 
-function CartItemCard({data, quantity, totalPrice, cartTotal}) {
-
+function CartItemCard({data, totalPrice, cartTotal}) {
+    // console.log(increase)
+    // console.log(decrease)
     const dispatch = useDispatch()
+    // const getQuantity = (state) => state.quantity
+    // const quantity = useSelector(getQuantity)
+    const quantity = useSelector(state => state.quantity)
 
-
+    const findProduct = () => {
+        axios.get(`http://localhost:4000/api/findProduct`).then(res => res.data)
+        // console.log(data)
+    }
+    let id = data.id
+    let price = data.price
+    console.log(id)
+    console.log(price)
+    console.log(quantity)
 
     const increaseHandler = () => {
-        dispatch(cartActions.increase)
+        dispatch(increase(findProduct(id, price)))
     }
-
     const decreaseHandler = () => {
-        dispatch(cartActions.decrease)
+        dispatch(decrease(quantity, data.price))
     }
-
-    console.log(data)
 
     return (
-        <div className='flex flex-row w-1/2'>            
+        <div className='flex flex-row w-1/2'> 
             <div className='flex flex-row justify-between pl-8 pt-6 border-b border-grey'>
                 <img
                     className='h-44 w-44 mb-6'
@@ -30,11 +40,11 @@ function CartItemCard({data, quantity, totalPrice, cartTotal}) {
                     <p className='pb-4'>{data.product_name}</p>
                     <div className='flex flex-row'>
                         <p className='flex justify-end'>{data.price}</p>
-                        <p>
-                            {/* <p onClick={() => decreaseHandler()}>-</p>
-                            {quantity}
-                            <p onClick={() => increaseHandler()}>+</p> */}
-                        </p>
+                        
+                            <button onClick={() => decreaseHandler()}>-</button>
+                            <p>{quantity}</p>
+                            <button onClick={() => increaseHandler()}>+</button>
+                        
                         <button className='bg-red w-20'>Remove</button>
                     </div>
                 </div>
@@ -47,8 +57,11 @@ function CartItemCard({data, quantity, totalPrice, cartTotal}) {
     )
 }
 
+
+
 // const mapStateToProps = (state, ownProps) => {
 //     return {quantity: state.quantity, totalPrice: state.totalPrice, cartTotal: state.cartTotal}
 // }
 // export default connect(mapStateToProps)(CartItemCard)
+
 export default CartItemCard
