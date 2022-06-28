@@ -5,15 +5,15 @@ import FilterBar from '../FilterBar'
 
 function ApparelPage() {
 
-    const [allApparel, setAllApparel] = useState([])
+    const [allProducts, setallProducts] = useState([])
 
     useEffect(() => {
-        axios.get(`http://localhost:4000/api/getApparel`).then(res => setAllApparel(res.data))
+        axios.get(`http://localhost:4000/api/getApparel`).then(res => setallProducts(res.data))
     }, [])
 
     return (
         <div>
-            <FilterBar allApparel={allApparel} setAllApparel={setAllApparel}/>            
+            <FilterBar allProducts={allProducts} setallProducts={setallProducts}/>            
         </div>
     )
 }

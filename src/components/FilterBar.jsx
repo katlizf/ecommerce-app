@@ -3,16 +3,16 @@ import React, {useEffect, useState} from 'react'
 import ProductCard from './product-cards/ProductCard'
 
 
-function FilterBar({allApparel, setAllApparel}) {
+function FilterBar({allProducts, setallProducts}) {
 
     const [allTitles, setAllTitles] = useState([])
     const [selected, setSelected] = useState('')
 
-    const productsList = allApparel.filter((item) => {
-        return item.name.includes(selected)
-        }).map((item, index) => {
+    const apparelList = allProducts.filter((apparel) => {
+        return apparel.name.includes(selected)
+        }).map((apparel, index) => {
             return (
-                <ProductCard key={index} id={item} product={item} setAllApparel={setAllApparel} allApparel={allApparel} />
+                <ProductCard key={index} id={apparel} product={apparel} setallProducts={setallProducts} allProducts={allProducts} />
             )
     })
 
@@ -39,7 +39,7 @@ function FilterBar({allApparel, setAllApparel}) {
                 </select>
             </div>
             <div className='card-container'>
-                {productsList}
+                {apparelList}
             </div>
         </div>
     )

@@ -6,18 +6,18 @@ import ProductCard from '../product-cards/ProductCard'
 
 function CollectablesPage() {
 
-    const [allCollectables, setAllCollectables] = useState([])
+    const [allProducts, setallProducts] = useState([])
 
     useEffect(() => {
-        axios.get(`http://localhost:4000/api/getCollectables`).then(res => setAllCollectables(res.data))
+        axios.get(`http://localhost:4000/api/getCollectables`).then(res => setallProducts(res.data))
     }, [])
 
     return (
         <div>
-            <FilterBar />
-            <div className='card-container'>
+            <FilterBar allProducts={allProducts} setallProducts={setallProducts}/>
+            {/* <div className='card-container'>
                 {allCollectables.map(data => <ProductCard data={data}/>)}
-            </div>
+            </div> */}
         </div>
     )
 }
