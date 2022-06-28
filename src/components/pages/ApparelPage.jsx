@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import FilterBar from '../FilterBar'
-import ProductCard from '../product-cards/ProductCard'
 
 
 function ApparelPage() {
@@ -14,10 +13,7 @@ function ApparelPage() {
 
     return (
         <div>
-            <FilterBar allApparel={allApparel} setAllApparel={setAllApparel}/>
-            <div className='card-container'>
-            {/* {allApparel.map(data => <ProductCard data={data} />)} */}
-            </div>
+            <FilterBar allApparel={allApparel} setAllApparel={setAllApparel}/>            
         </div>
     )
 }
