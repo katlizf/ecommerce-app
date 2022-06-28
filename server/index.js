@@ -30,22 +30,6 @@ app.get('/api/getCollectables', async (req, res) => {
         res.status(200).send(allCollectables[0])
 })
 
-// app.post('/api/findProduct', async (req, res) => {
-//     let {id} = req.body
-//     await sequelize.query(`
-//         SELECT * FROM cart_items c
-//         WHERE c_id = ${id};`)
-//         res.status(200)
-// })
-app.get('/api/findProduct', async (req, res) => {
-    let productInfo = await sequelize.query(`
-        SELECT cart_items.id, products.price FROM cart_items
-        JOIN products
-        ON cart_items.id = products.id;`)
-        res.status(200).send(productInfo)
-})
-
-
 app.post('/api/addToCart', async (req, res) => {
     let {id} = req.body
     const inCart = await sequelize.query(`

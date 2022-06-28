@@ -1,39 +1,30 @@
 import {createSlice} from '@reduxjs/toolkit'
-import axios from 'axios'
 
 
-let price = 10
+let price = 0
 
-// let price = axios.get('http://localhost:4000/api/getPrice').then(res => res.data)
-console.log(price)
 const cartSlice = createSlice({
     name: 'cart',
     initialState: {
         quantity: 1,
-        price,
-        totalPrice: price,
-        cartTotal: 0
+        totalProdPrice: 0,
+        subtotal: 0
     },
     reducers: {
-        increase (state, action, price) {
-            
-            console.log('increase')
+        increase (state, action) {
             state.quantity += 1
-            state.totalPrice += state.totalPrice
-            // state.cartTotal = state.cartTotal + price
-            console.log(state.totalPrice)
+            state.totalProdPrice += price
+            state.totalProdPrice = state.quantity * +action.payload.data.price
+            state.subtotal = state.subtotal + +action.payload.data.price
         },
-        decrease (state, action, price) {
-            console.log('decrease')
+        decrease (state, action) {
+            console.log(action.payload.data.price)
             state.quantity -= 1
-            state.totalPrice = state.totalPrice - price
-            state.cartTotal = state.cartTotal - price
-            
+            state.totalProdPrice = state.quantity * +action.payload.data.price
+            state.subtotal = state.subtotal - +action.payload.data.price
         }
     }
 })
 
 export const {increase, decrease} = cartSlice.actions
 export default cartSlice.reducer
-
-console.log(increase(1))

@@ -1,33 +1,21 @@
 import React from 'react'
-import axios from 'axios'
 import {useDispatch, useSelector} from 'react-redux'
 import {increase, decrease} from '../../store/cart-reducer'
 
 
-function CartItemCard({data, totalPrice, cartTotal}) {
-    // console.log(increase)
-    // console.log(decrease)
-    const dispatch = useDispatch()
-    // const getQuantity = (state) => state.quantity
-    // const quantity = useSelector(getQuantity)
-    const quantity = useSelector(state => state.quantity)
+function CartItemCard({data}) {
 
-    const findProduct = () => {
-        axios.get(`http://localhost:4000/api/findProduct`).then(res => res.data)
-        // console.log(data)
-    }
-    let id = data.id
-    let price = data.price
-    console.log(id)
-    console.log(price)
-    console.log(quantity)
+    const dispatch = useDispatch()
+    const quantity = useSelector(state => state.cart)
+    const totalProdPrice = useSelector(state => state.cart)
 
     const increaseHandler = () => {
-        dispatch(increase(findProduct(id, price)))
+        dispatch(increase({data}))
     }
     const decreaseHandler = () => {
-        dispatch(decrease(quantity, data.price))
+        dispatch(decrease({data}))
     }
+    
 
     return (
         <div className='flex flex-row w-1/2'> 
@@ -40,18 +28,15 @@ function CartItemCard({data, totalPrice, cartTotal}) {
                     <p className='pb-4'>{data.product_name}</p>
                     <div className='flex flex-row'>
                         <p className='flex justify-end'>{data.price}</p>
-                        
                             <button onClick={() => decreaseHandler()}>-</button>
-                            <p>{quantity}</p>
+                            <p>{quantity.quantity}</p>
                             <button onClick={() => increaseHandler()}>+</button>
-                        
                         <button className='bg-red w-20'>Remove</button>
                     </div>
                 </div>
                 <div className='pt-6'>
-                    <p className='flex justify-end'>{totalPrice}</p>
+                    <p className='flex justify-end'>{totalProdPrice.totalProdPrice}</p>
                 </div>
-                <p>{cartTotal}</p>
             </div>
         </div>
     )
