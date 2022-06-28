@@ -1,15 +1,9 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {Link} from 'react-router-dom'
-import Auth from './Auth'
+import Login from './Login'
 
 
 function Navbar() {
-
-    const [loginDisplay, setLoginDisplay] = useState(false)
-
-    const toggleLogin = e => {
-        setLoginDisplay(loginDisplay => !loginDisplay)
-    }
 
     return (
         <div className='flex justify-end items-center h-24 bg-orange pr-20'>
@@ -25,8 +19,9 @@ function Navbar() {
             <Link to='/cart'>
                 <button id='link-btn'>Cart</button>
             </Link>
-            <button id='link-btn' onClick={toggleLogin}>Login</button>
-            {loginDisplay && <Auth />}
+            <Login id='link-btn'/>
+            
+
         </div>
     )
 }
