@@ -14,9 +14,9 @@ function ApparelPage() {
 
     return (
         <div>
-            <FilterBar />
+            <FilterBar allApparel={allApparel} setAllApparel={setAllApparel}/>
             <div className='card-container'>
-            {allApparel.map(data => <ProductCard data={data} />)}
+            {/* {allApparel.map(data => <ProductCard data={data} />)} */}
             </div>
         </div>
     )
