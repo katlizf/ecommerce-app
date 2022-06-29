@@ -22,7 +22,7 @@
         @apply w-64 h-72;
     }
     .prod-desc {
-        @apply h-auto
+        @apply h-auto;
     }
     .cart-btn {
         @apply bg-orange w-24 cursor-pointer;
@@ -35,6 +35,12 @@
     }
     #link-btn-lg {
         @apply w-max pr-5 pl-7 border-x;
+    }
+    .center {
+        @apply flex justify-center;
+    }
+    .center-input {
+        @apply ml-96 w-80 border-2
     }
 }
 
