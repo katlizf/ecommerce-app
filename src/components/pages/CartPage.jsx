@@ -9,16 +9,27 @@ function CartPage() {
     const [cartItem, setCartItem] = useState([])    
     // const subtotal = useSelector(state => state.cart)
 
-    let subtotal = 0
+    const [subtotal, setSubtotal] = useState(0)
 
-    const getCart = useEffect(() => {
+    const updateSubtotal = price => {
+        setSubtotal(subtotal + (+price))
+    }
+
+    useEffect(() => {
         axios.get(`http://localhost:4000/api/getCartProducts`).then(res => setCartItem(res.data))
     }, [])
+
+    useEffect(() => {
+        let initialPrice = cartItem.reduce((acc, item)=>{
+            return acc + (+item.price)
+        }, 0)
+        setSubtotal(initialPrice)
+    }, [cartItem])
 
     return (
         <div className='flex justify-center'>
             <div className='flex flex-col w-1/2'>
-                {cartItem.map(data => <CartItemCard data={data} />)}
+                {cartItem.map(data => <CartItemCard data={data} updateSubtotal={updateSubtotal}/>)}
             </div>
             <p>{subtotal}</p>            
         </div>

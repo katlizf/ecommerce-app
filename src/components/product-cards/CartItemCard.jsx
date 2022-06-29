@@ -1,10 +1,10 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import {useDispatch, useSelector} from 'react-redux'
 import {increase, decrease} from '../../store/cart-reducer'
 
 
-function CartItemCard({data}) {
+function CartItemCard({data, updateSubtotal}) {
 
     const [quantity, setQuantity] = useState(1)
 
@@ -37,9 +37,11 @@ function CartItemCard({data}) {
 
     const increaseHandler = () => {
         setQuantity(quantity+1)
+        updateSubtotal(data.price)
     }
     const decreaseHandler = () => {
         setQuantity(quantity-1)
+        updateSubtotal(-data.price)
     } 
 
     return (
@@ -67,11 +69,5 @@ function CartItemCard({data}) {
     )
 }
 
-
-
-// const mapStateToProps = (state, ownProps) => {
-//     return {quantity: state.quantity, totalPrice: state.totalPrice, cartTotal: state.cartTotal}
-// }
-// export default connect(mapStateToProps)(CartItemCard)
 
 export default CartItemCard
