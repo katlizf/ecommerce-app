@@ -34,9 +34,10 @@ app.get('/api/getCollectables', async (req, res) => {
 
 app.get('/api/getPrice', async (req, res) => {
     let price = await sequelize.query(`
-        SELECT cart_items.id, products.price FROM cart_items
-        JOIN products
-        ON cart_items.product_number = products.id;`)
+        SELECT p.price FROM cart_items c
+        JOIN products p
+        ON c.product_number = p.id
+        ;`)
         res.status(200).send(price[0])
 })
 
@@ -59,9 +60,9 @@ app.post('/api/addToCart', async (req, res) => {
 
 app.get('/api/getCartProducts', async (req, res) => {
     let cartProducts = await sequelize.query(`
-        SELECT * FROM cart_items
-        JOIN products
-        ON cart_items.product_number = products.id;`)
+        SELECT c.id, c.customer, c.product_number, p.product_name, p.price, p.image FROM cart_items c
+        JOIN products p
+        ON c.product_number = p.id;`)
         res.status(200).send(cartProducts[0])
 })
 
@@ -81,8 +82,8 @@ app.post('/api/login', async (req, res) => {
     }
 })
 
-app.delete('/api/deleteProduct', async (req, res) => {
-    let {id} = req.body
+app.delete('/api/deleteProduct/:id', async (req, res) => {
+    let {id} = req.params
     await sequelize.query(`
         DELETE FROM cart_items
         WHERE cart_items.id = ${id}`)

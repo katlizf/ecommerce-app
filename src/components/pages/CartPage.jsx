@@ -7,18 +7,20 @@ import CartItemCard from '../product-cards/CartItemCard'
 function CartPage() {
 
     const [cartItem, setCartItem] = useState([])    
-    const subtotal = useSelector(state => state.cart)
+    // const subtotal = useSelector(state => state.cart)
 
-    useEffect(() => {
+    let subtotal = 0
+
+    const getCart = useEffect(() => {
         axios.get(`http://localhost:4000/api/getCartProducts`).then(res => setCartItem(res.data))
     }, [])
 
     return (
         <div className='flex justify-center'>
             <div className='flex flex-col w-1/2'>
-                {cartItem.map(data => <CartItemCard data={data}/>)}
+                {cartItem.map(data => <CartItemCard data={data} />)}
             </div>
-            <p>{subtotal.subtotal}</p>            
+            <p>{subtotal}</p>            
         </div>
     )
 }
