@@ -10,7 +10,6 @@ import {data} from 'autoprefixer'
 function Login() {
 
     const [showModal, setShowModal] = useState(false)
-    const [userInfo, setUserInfo] = useState('')
 
     const openModal = () => {
         setShowModal(true)
@@ -21,7 +20,7 @@ function Login() {
 
     const checkUserExists = user => {
         const body = {id: user.id, username: user.username, password: user.password}
-        axios.post(`http://localhost:4000/api/login`, body).then(res => setUserInfo(res.data))
+        axios.post(`http://localhost:4000/api/login`, body).then(res => res.data)
     }
 
     return (
@@ -31,9 +30,7 @@ function Login() {
                 isOpen={showModal}
                 style={{
                     overlay: {
-                        position: 'absolute',
-                        // width: '50%',
-                        // height: '70%'
+                        position: 'absolute'
                     },
                     content: {
                         position: 'absolute',
@@ -51,6 +48,7 @@ function Login() {
                     <input
                         name='username'
                         type='text'
+                        required
                         value={data.username}
                         className='center-input'></input>
                     <label className='center'>Password</label>
@@ -68,6 +66,6 @@ function Login() {
 }
 
 
-ReactDOM.createPortal(<Login />, document.getElementById('modal'))
+ReactDOM.createPortal(<Login />, document.getElementById('login'))
 
 export default Login

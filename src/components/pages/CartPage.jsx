@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import { useSelector } from 'react-redux'
 import CartItemCard from '../product-cards/CartItemCard'
+import Checkout from '../../modals/Checkout'
 
 
 function CartPage() {
@@ -31,7 +32,8 @@ function CartPage() {
             <div className='flex flex-col w-1/2'>
                 {cartItem.map(data => <CartItemCard data={data} updateSubtotal={updateSubtotal}/>)}
             </div>
-            <p>{subtotal}</p>            
+            <p>{subtotal.toFixed(2)}</p>            
+            <Checkout subtotal={subtotal}/>
         </div>
     )
 }

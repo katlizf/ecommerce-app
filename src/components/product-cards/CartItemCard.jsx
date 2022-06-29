@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import axios from 'axios'
 import {useDispatch, useSelector} from 'react-redux'
 import {increase, decrease} from '../../store/cart-reducer'
@@ -19,12 +19,12 @@ function CartItemCard({data, updateSubtotal}) {
     //     dispatch(decrease({data}))
     // }
 
+    // const getPrice = () => {
+    //     axios.get(`http://localhost:4000/api/getPrice`).then(res => res.data)
+    // }
+
     const refreshPage = ()=>{
         window.location.reload();
-     }
-
-    const getPrice = () => {
-        axios.get(`http://localhost:4000/api/getPrice`).then(res => res.data)
     }
 
     const deleteProduct = cartItem => {
@@ -33,7 +33,7 @@ function CartItemCard({data, updateSubtotal}) {
         refreshPage()
     }
 
-    let totalProdPrice = Math.round((data.price * +quantity)*100)/100
+    let totalProdPrice = data.price * +quantity
 
     const increaseHandler = () => {
         setQuantity(quantity+1)
@@ -62,7 +62,7 @@ function CartItemCard({data, updateSubtotal}) {
                     </div>
                 </div>
                 <div className='pt-6'>
-                    <p className='flex justify-end'>{totalProdPrice}</p>
+                    <p className='flex justify-end'>{totalProdPrice.toFixed(2)}</p>
                 </div>
             </div>
         </div>

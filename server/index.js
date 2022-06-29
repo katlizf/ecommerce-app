@@ -43,7 +43,6 @@ app.get('/api/getPrice', async (req, res) => {
 
 app.post('/api/addToCart', async (req, res) => {
     let {id} = req.body
-    console.log(id)
     const inCart = await sequelize.query(`
         SELECT * FROM cart_items
         WHERE product_number = ${id};`)
@@ -66,22 +65,6 @@ app.get('/api/getCartProducts', async (req, res) => {
         res.status(200).send(cartProducts[0])
 })
 
-app.post('/api/login', async (req, res) => {
-    let {username, password} = req.body
-    const userExists = await sequelize.query(`
-        SELECT * FROM customer
-        WHERE customer.username = ${username}`)
-    
-    if(userExists[0].length === 0) {
-        await sequelize.query(`
-            INSERT INTO customer (username, password)
-            VALUES ('${username}, '${password}');`)
-            res.send(200).send('Thanks for logging in!')
-    } else {
-        res.send('Please choose a different username')
-    }
-})
-
 app.delete('/api/deleteProduct/:id', async (req, res) => {
     let {id} = req.params
     await sequelize.query(`
@@ -89,6 +72,36 @@ app.delete('/api/deleteProduct/:id', async (req, res) => {
         WHERE cart_items.id = ${id}`)
         res.status(200)
 })
+
+app.post('/api/createShipment', async (req, res) => {
+    let {address, city, state, zipCode, phone, firstName, lastName, email} = req.body
+    await sequelize.query(`
+        INSERT INTO shipments (address, city, state, zip_code, first_name, last_name, email, phone_number)
+        VALUES ('${address}', '${city}', '${state}', ${zipCode}, '${firstName}', '${lastName}', '${email}', '${phone}');`)
+        res.status(200)
+})
+
+app.delete('/api/emptyCart', async (req, res) => {
+    await sequelize.query(`
+        DELETE FROM cart_items;`)
+        res.status(200)
+})
+
+// app.post('/api/login', async (req, res) => {
+//     let {username, password} = req.body
+//     const userExists = await sequelize.query(`
+//         SELECT * FROM customer
+//         WHERE customer.username = ${username}`)
+    
+//     if(userExists[0].length === 0) {
+//         await sequelize.query(`
+//             INSERT INTO customer (username, password)
+//             VALUES ('${username}, '${password}');`)
+//             res.send(200).send('Thanks for logging in!')
+//     } else {
+//         res.send('Please choose a different username')
+//     }
+// })
 
 
 app.listen(PORT, () => console.log(`Server up on port ${PORT}`))
