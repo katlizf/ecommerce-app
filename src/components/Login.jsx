@@ -30,9 +30,19 @@ function Login() {
             <ReactModal
                 isOpen={showModal}
                 style={{
+                    overlay: {
+                        position: 'absolute',
+                        // width: '50%',
+                        // height: '70%'
+                    },
                     content: {
-                        top:'50px', 
-                        left:'50px',
+                        position: 'absolute',
+                        top:'10%', 
+                        left:'33%',
+                        bottom: '10%',
+                        right: '10%',
+                        width: '35%',
+                        height: '60%',
                         border:'2px solid #ccc'
                     }}}>
                 <div className='flex flex-col'>
