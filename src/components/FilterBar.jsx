@@ -8,11 +8,11 @@ function FilterBar({allProducts, setallProducts}) {
     const [allTitles, setAllTitles] = useState([])
     const [selected, setSelected] = useState('')
 
-    const apparelList = allProducts.filter((apparel) => {
-        return apparel.name.includes(selected)
-        }).map((apparel, index) => {
+    const apparelList = allProducts.filter((anime) => {
+        return anime.name.includes(selected)
+        }).map((anime, index) => {
             return (
-                <ProductCard key={index} id={apparel} product={apparel} setallProducts={setallProducts} allProducts={allProducts} />
+                <ProductCard key={index} id={anime.id} product={anime} setallProducts={setallProducts} allProducts={allProducts} />
             )
     })
 

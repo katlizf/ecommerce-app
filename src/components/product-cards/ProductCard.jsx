@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 
 
-function ProductCard({data, product}) {
+function ProductCard({product}) {
 
     const addToCart = product => {
         const body = {id: product.id, type: product.type}
@@ -17,7 +17,7 @@ function ProductCard({data, product}) {
                 <h3>{product.description}</h3>
                 <div className='card-row'>
                     <h3>${product.price}</h3>
-                    <button className='cart-btn' onClick={() => addToCart(data)}>Add to Cart</button>
+                    <button className='cart-btn' onClick={() => addToCart(product)}>Add to Cart</button>
                 </div>
             </div>
         </div>
