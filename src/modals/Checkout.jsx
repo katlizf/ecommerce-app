@@ -71,7 +71,8 @@ function Checkout({subtotal}) {
 
     return (
         <div>
-            <button onClick={e => openCheckout()}>Checkout</button>
+            <button
+                onClick={e => openCheckout()}>Checkout</button>
             <ReactModal
                 isOpen={showCheckout}
                 style={{

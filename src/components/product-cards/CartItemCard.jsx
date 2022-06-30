@@ -23,8 +23,8 @@ function CartItemCard({data, updateSubtotal}) {
     //     axios.get(`http://localhost:4000/api/getPrice`).then(res => res.data)
     // }
 
-    const refreshPage = ()=>{
-        window.location.reload();
+    const refreshPage = () => {
+        window.location.reload()
     }
 
     const deleteProduct = cartItem => {
@@ -36,38 +36,37 @@ function CartItemCard({data, updateSubtotal}) {
     let totalProdPrice = data.price * +quantity
 
     const increaseHandler = () => {
-        setQuantity(quantity+1)
+        setQuantity(quantity + 1)
         updateSubtotal(data.price)
     }
     const decreaseHandler = () => {
-        setQuantity(quantity-1)
+        setQuantity(quantity - 1)
         updateSubtotal(-data.price)
-    } 
+    }
 
     return (
-        <div className='flex flex-row w-1/2'> 
+        <div className='flex flex-row'>
             <div className='flex flex-row justify-between pl-8 pt-6 border-b border-grey'>
                 <img
                     className='h-44 w-44 mb-6'
                     src={data.image}
                     alt={data.product_name} />
-                <div className='flex flex-col pt-9 pl-7'>
+                <div className='flex flex-col pt-9 pl-7 pr-9'>
                     <p className='pb-4'>{data.product_name}</p>
-                    <div className='flex flex-row'>
-                        <p className='flex justify-end'>{data.price}</p>
-                            <button onClick={() => decreaseHandler()}>-</button>
-                            <p>{quantity}</p>
-                            <button onClick={() => increaseHandler()}>+</button>
-                        <button className='bg-red w-20' onClick={() => deleteProduct(data)}>Remove</button>
+                    <div className='flex flex-row pr-36 space-x-3'>
+                        <p>{data.price}</p>
+                        <button onClick={() => decreaseHandler()}>-</button>
+                        <p>{quantity}</p>
+                        <button onClick={() => increaseHandler()}>+</button>
+                        <button className='bg-light-grey w-20' onClick={() => deleteProduct(data)}>Remove</button>
                     </div>
                 </div>
-                <div className='pt-6'>
-                    <p className='flex justify-end'>{totalProdPrice.toFixed(2)}</p>
+                <div className='flex justify-end pt-6'>
+                    <p>{totalProdPrice.toFixed(2)}</p>
                 </div>
             </div>
         </div>
     )
 }
-
 
 export default CartItemCard

@@ -27,9 +27,9 @@ function FilterBar({allProducts, setallProducts}) {
     })
 
     return (
-        <div className='flex flex-col justify-start pr-24 pt-16'>
-            <div className='pr-12'>
-                <h2>Search: <input className='border-b-2'></input></h2>
+        <div>
+            <div className='flex justify-end pr-28 pt-8'>
+                {/* <h2>Search: <input className='border-b-2'></input></h2> */}
                 <select
                     className='border-2'
                     onChange={e => setSelected(e.target.value)}

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import FilterBar from '../FilterBar'
+import FreeShipping from '../../banners/FreeShipping'
 
 
 function ApparelPage() {
@@ -13,7 +14,9 @@ function ApparelPage() {
 
     return (
         <div>
-            <FilterBar allProducts={allProducts} setallProducts={setallProducts}/>            
+            <FreeShipping />
+            <FilterBar
+                allProducts={allProducts} setallProducts={setallProducts} />
         </div>
     )
 }
