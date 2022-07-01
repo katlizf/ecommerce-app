@@ -9,6 +9,8 @@ import Register from './Register'
 function Login() {
 
     const [showLogin, setShowLogin] = useState(false)
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
 
     const openLogin = () => {
         setShowLogin(true)
@@ -17,8 +19,21 @@ function Login() {
         setShowLogin(false)
     }
 
-    const checkUserExists = user => {
-        const body = {id: user.id, username: user.username, password: user.password}
+    const userCredentials = e => {
+        switch (e.target.name) {
+            case 'username':
+                setUsername(e.target.value)
+                break;
+            case 'password':
+                setPassword(e.target.value)
+                break;
+            default:
+                e.preventDefault()
+        }
+    }
+
+    const checkUserExists = () => {
+        const body = {username, password}
         axios.post(`http://localhost:4000/api/login`, body).then(res => alert(res.data)).catch(err => alert(err.response.data))
         closeLogin()
     }
@@ -41,6 +56,7 @@ function Login() {
                         width: '35%',
                         height: '60%',
                         border:'2px solid #ccc'
+                        // background: 'orange'
                     }}}>
                 <div className='flex flex-col'>
                     <p className='center'>Login</p>
@@ -48,14 +64,13 @@ function Login() {
                     <input
                         name='username'
                         type='text'
-                        required
-                        value=''
+                        onChange={userCredentials}
                         className='center-input'></input>
                     <label className='center'>Password</label>
                     <input
                         name='password'
-                        type='text'
-                        value=''
+                        type='password'
+                        onChange={userCredentials}
                         className='center-input'></input>
                     <button onClick={closeLogin}>Cancel</button>
                     <button onClick={checkUserExists}>Login</button>

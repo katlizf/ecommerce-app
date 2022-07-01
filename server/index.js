@@ -91,12 +91,14 @@ app.post('/api/login', async (req, res) => {
     let {username, password} = req.body
     const userExists = await sequelize.query(`
         SELECT * FROM customer c
-        WHERE c.username = ${username} AND c.password = ${password}`)
+        WHERE c.username = '${username}' 
+        AND c.password = '${password}';`)
+        res.status(200).send(res.data)
     
-    if(userExists[0].length === 0) {
-            res.status(500).send("Sorry, we don't reconginze that username or password. Please try again or regiser as a new customer.")
+    if(userExists[0].length === 1) {
+            res.status(500).send('Login successful!')
     } else {
-        res.status(200).send('Login Successful!')
+        res.status(200).send("Sorry, we don't reconginze that username or password. Please try again or regiser as a new customer.")
     }
 })
 
