@@ -29,7 +29,7 @@ function Checkout({subtotal}) {
         setShowCheckout(false)
     }
 
-    const makeChanges = e => {
+    const shipmentDetails = e => {
         switch(e.target.name) {
             case 'fname':
                 setFirstName(e.target.value)
@@ -93,25 +93,57 @@ function Checkout({subtotal}) {
                 <p>Please complete your shipment details below to checkout</p>
                 <div className='flex flex-col'>
                     <label>First name: 
-                        <input className='user-input' name='fname' onChange={makeChanges}></input></label>
+                        <input 
+                            className='user-input' 
+                            name='fname' 
+                            type='text'
+                            onChange={shipmentDetails}></input></label>
                     <label>Last name: 
-                        <input className='user-input' name='lname' onChange={makeChanges}></input></label>
+                        <input 
+                            className='user-input' 
+                            name='lname' 
+                            type='text' 
+                            onChange={shipmentDetails}></input></label>
                 </div>
                 <div className='flex flex-col'>
                     <label>Address: 
-                        <input className='user-input' name='address' onChange={makeChanges}></input></label>
+                        <input 
+                            className='user-input'
+                            name='address' 
+                            type='text' 
+                            onChange={shipmentDetails}></input></label>
                     <label>City: 
-                        <input className='user-input' name='city' onChange={makeChanges}></input></label>
+                        <input 
+                            className='user-input' 
+                            name='city' 
+                            type='text' 
+                            onChange={shipmentDetails}></input></label>
                     <label>State: 
-                        <input className='user-input' name='state' onChange={makeChanges}></input></label>
+                        <input 
+                            className='user-input' 
+                            name='state' 
+                            type='text' 
+                            onChange={shipmentDetails}></input></label>
                     <label>Zip code: 
-                        <input className='user-input' name='zcode' onChange={makeChanges}></input></label>
+                        <input 
+                            className='user-input' 
+                            name='zcode' 
+                            type='text' 
+                            onChange={shipmentDetails}></input></label>
                 </div>
                 <div className='flex flex-col'>
                     <label>Phone number: 
-                        <input className='user-input' name='phone' onChange={makeChanges}></input></label>
+                        <input 
+                            className='user-input' 
+                            name='phone' 
+                            type='text' 
+                            onChange={shipmentDetails}></input></label>
                     <label>Email: 
-                        <input className='user-input' name='email' onChange={makeChanges}></input></label>
+                        <input 
+                            className='user-input'
+                             name='email' 
+                             type='email' 
+                             onChange={shipmentDetails}></input></label>
                 </div>
                 <div>
                     <span className='flex flex-row'>

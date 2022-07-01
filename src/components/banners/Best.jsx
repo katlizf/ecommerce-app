@@ -1,6 +1,6 @@
 import React from 'react'
-import SwordIconLeft from '../images/sword-icon-left.png'
-import SwordIconRight from '../images/sword-icon-right.png'
+import SwordIconLeft from '../../images/sword-icon-left.png'
+import SwordIconRight from '../../images/sword-icon-right.png'
 
 function Best() {
     return (

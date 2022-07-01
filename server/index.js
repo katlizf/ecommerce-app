@@ -53,7 +53,7 @@ app.post('/api/addToCart', async (req, res) => {
             VALUES (${id});`)
             res.status(200).send('Successfully added to cart!')
     } else {
-        res.status(500).send('This product is already in your cart')
+        res.status(500).send('This product is already in your cart.')
     }
 })
 
@@ -87,21 +87,26 @@ app.delete('/api/emptyCart', async (req, res) => {
         res.status(200)
 })
 
-// app.post('/api/login', async (req, res) => {
-//     let {username, password} = req.body
-//     const userExists = await sequelize.query(`
-//         SELECT * FROM customer
-//         WHERE customer.username = ${username}`)
+app.post('/api/login', async (req, res) => {
+    let {username, password} = req.body
+    const userExists = await sequelize.query(`
+        SELECT * FROM customer c
+        WHERE c.username = ${username} AND c.password = ${password}`)
     
-//     if(userExists[0].length === 0) {
-//         await sequelize.query(`
-//             INSERT INTO customer (username, password)
-//             VALUES ('${username}, '${password}');`)
-//             res.send(200).send('Thanks for logging in!')
-//     } else {
-//         res.send('Please choose a different username')
-//     }
-// })
+    if(userExists[0].length === 0) {
+            res.status(500).send("Sorry, we don't reconginze that username or password. Please try again or regiser as a new customer.")
+    } else {
+        res.status(200).send('Login Successful!')
+    }
+})
+
+app.post('/api/register', async (req, res) => {
+    let {username, password, firstName, lastName} = req.body
+    await sequelize.query(`
+        INSERT INTO customer (username, password first_name, last_name)
+        VALUES ('${username}', '${password}', '${firstName}', '${lastName}');`)
+        res.status(200)
+})
 
 
 app.listen(PORT, () => console.log(`Server up on port ${PORT}`))

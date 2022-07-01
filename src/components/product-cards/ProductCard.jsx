@@ -6,7 +6,7 @@ function ProductCard({product}) {
 
     const addToCart = product => {
         const body = {id: product.id, type: product.type}
-        axios.post(`http://localhost:4000/api/addToCart`, body).then(res => res.data)
+        axios.post(`http://localhost:4000/api/addToCart`, body).then(res => alert(res.data)).catch(err => alert(err.response.data))
     }
 
     return (

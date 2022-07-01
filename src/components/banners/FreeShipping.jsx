@@ -1,5 +1,5 @@
 import React from 'react'
-import ShippingIcon from '../images/shipping-icon.png'
+import ShippingIcon from '../../images/shipping-icon.png'
 
 function FreeShipping() {
     return (

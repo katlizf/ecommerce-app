@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import FilterBar from '../FilterBar'
 import ProductCard from '../product-cards/ProductCard'
-import Best from '../../banners/Best'
+import Best from '../banners/Best'
 
 
 function CollectablesPage() {

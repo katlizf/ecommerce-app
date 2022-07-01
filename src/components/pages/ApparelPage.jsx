@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import FilterBar from '../FilterBar'
-import FreeShipping from '../../banners/FreeShipping'
+import FreeShipping from '../banners/FreeShipping'
 
 
 function ApparelPage() {

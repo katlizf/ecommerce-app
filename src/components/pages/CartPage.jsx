@@ -3,7 +3,7 @@ import axios from 'axios'
 import {useSelector} from 'react-redux'
 import CartItemCard from '../product-cards/CartItemCard'
 import Checkout from '../../modals/Checkout'
-import CartBanner from '../../banners/CartBanner'
+import CartBanner from '../banners/CartBanner'
 
 
 function CartPage() {
@@ -29,7 +29,7 @@ function CartPage() {
 
     return (
         <div>
-            <CartBanner />
+            {/* <CartBanner /> */}
         <div className='flex justify-center'>
             <div className='flex flex-col'>
                 <h1 className='mt-20 mb-10 text-3xl'>Shopping Cart</h1>
