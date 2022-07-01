@@ -18,10 +18,7 @@ function CartItemCard({data, updateSubtotal}) {
     // const decreaseHandler = () => {
     //     dispatch(decrease({data}))
     // }
-
-    // const getPrice = () => {
-    //     axios.get(`http://localhost:4000/api/getPrice`).then(res => res.data)
-    // }
+    // NOTE: not sure how to set product price as initialState in reducer; using increaseHandler and decreaseHandler below instead
 
     const refreshPage = () => {
         window.location.reload()

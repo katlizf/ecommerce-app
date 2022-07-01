@@ -1,7 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit'
 
-
-// let price = 0
+// Note: not sure how to set price initialState as product price
 
 const cartSlice = createSlice({
     name: 'cart',
@@ -14,7 +13,6 @@ const cartSlice = createSlice({
     reducers: {
         increase (state, action) {
             state.quantity += 1
-            // state.totalProdPrice += price
             state.totalProdPrice = state.quantity * +action.payload.data.price
             state.subtotal = state.subtotal + +action.payload.data.price
         },
