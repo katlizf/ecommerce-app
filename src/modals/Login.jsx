@@ -5,7 +5,6 @@ import axios from 'axios'
 import Register from './Register'
 
 
-
 function Login() {
 
     const [showLogin, setShowLogin] = useState(false)
@@ -40,9 +39,10 @@ function Login() {
 
     return (
         <div>
-            <button onClick={e => openLogin()}>Login</button>
+            <button onClick={e => openLogin()} id='link-btn'>Login</button>
             <ReactModal
                 isOpen={showLogin}
+                ariaHideApp={false}
                 style={{
                     overlay: {
                         position: 'absolute'

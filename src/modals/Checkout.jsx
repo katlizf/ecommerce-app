@@ -3,6 +3,7 @@ import ReactModal from 'react-modal'
 import ReactDOM from 'react-dom'
 import axios from 'axios'
 
+
 function Checkout({subtotal}) {
 
     const [showCheckout, setShowCheckout] = useState(false)
@@ -70,27 +71,27 @@ function Checkout({subtotal}) {
     }
 
     return (
-        <div>
+        <div className='flex justify-end pb-28'>
             <button
-                onClick={e => openCheckout()}>Checkout</button>
+                onClick={e => openCheckout()}
+                className='border-2 w-24 bg-green'>Checkout</button>
             <ReactModal
                 isOpen={showCheckout}
+                ariaHideApp={false}
                 style={{
-                    overlay: {
-                        position: 'absolute'
-                    },
                     content: {
                         position: 'absolute',
                         top: '10%',
                         left: '33%',
                         bottom: '10%',
                         right: '10%',
-                        width: '35%',
-                        height: '60%',
+                        width: '45%',
+                        height: '80%',
                         border: '2px solid #ccc'
                     }
                 }}>
-                <p>Please complete your shipment details below to checkout</p>
+                <h1>You're Almost There!</h1>
+                <h2>Please complete your shipment details below to checkout</h2>
                 <div className='flex flex-col'>
                     <label>First name: 
                         <input 

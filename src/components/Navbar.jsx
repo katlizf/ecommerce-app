@@ -14,7 +14,7 @@ function Navbar() {
                 </a>
                 <h1 className='flex items-center text-3xl tracking-wider'>Weebs R Us!</h1>
             </div>
-            <div className='flex justify-end items-center pr-20'>
+            <div className='flex justify-end items-center mr-20'>
                 <Link to='/'>
                     <button id='link-btn'>Home</button>
                 </Link>
@@ -27,7 +27,7 @@ function Navbar() {
                 <Link to='/cart'>
                     <button id='link-btn'>Cart</button>
                 </Link>
-                <Login id='link-btn' />
+                <Login />
             </div>
         </div>
     )

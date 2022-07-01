@@ -3,6 +3,7 @@ import ReactModal from 'react-modal'
 import ReactDOM from 'react-dom'
 import axios from 'axios'
 
+
 function Register() {
 
     const [showRegister, setShowRegister] = useState(false)
@@ -49,6 +50,7 @@ function Register() {
             <button onClick={e => openRegister()}>Register a new account</button>
             <ReactModal
                 isOpen={showRegister}
+                ariaHideApp={false}
                 style={{
                     overlay: {
                         position: 'absolute'
