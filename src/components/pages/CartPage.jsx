@@ -3,7 +3,6 @@ import axios from 'axios'
 import {useSelector} from 'react-redux'
 import CartItemCard from '../product-cards/CartItemCard'
 import Checkout from '../../modals/Checkout'
-import CartBanner from '../banners/CartBanner'
 
 
 function CartPage() {

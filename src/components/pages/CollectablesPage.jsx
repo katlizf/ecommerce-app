@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import FilterBar from '../FilterBar'
-import ProductCard from '../product-cards/ProductCard'
-import Best from '../banners/Best'
+import AllYouNeed from '../banners/AllYouNeed'
 
 
 function CollectablesPage() {
@@ -15,11 +14,8 @@ function CollectablesPage() {
 
     return (
         <div>
-            <Best />
-            <FilterBar allProducts={allProducts} setallProducts={setallProducts}/>            
-            {/* <div className='card-container'>
-                {allCollectables.map(data => <ProductCard data={data}/>)}
-            </div> */}
+            <AllYouNeed />
+            <FilterBar allProducts={allProducts} setallProducts={setallProducts}/>
         </div>
     )
 }
