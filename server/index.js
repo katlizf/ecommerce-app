@@ -51,9 +51,9 @@ app.post('/api/addToCart', async (req, res) => {
         await sequelize.query(`
             INSERT INTO cart_items (product_number)
             VALUES (${id});`)
-            res.status(200)
+            res.status(200).send('Successfully added to cart!')
     } else {
-        res.send('This Product is already in your cart')
+        res.status(500).send('This product is already in your cart')
     }
 })
 
