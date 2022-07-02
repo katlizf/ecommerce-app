@@ -39,7 +39,7 @@ function Login() {
 
     return (
         <div>
-            <button id='link-btn' onClick={e => openLogin()}>Login</button>
+            <button class='link-btn' onClick={e => openLogin()}>Login</button>
             <ReactModal
                 isOpen={showLogin}
                 ariaHideApp={false}

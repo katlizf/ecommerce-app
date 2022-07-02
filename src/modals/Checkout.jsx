@@ -71,7 +71,7 @@ function Checkout({subtotal}) {
     }
 
     return (
-        <div className='flex justify-end pb-28'>
+        <div className='flex justify-end mb-28'>
             <button
                 onClick={e => openCheckout()}
                 className='w-24 h-8 bg-orange hover:bg-green'>Checkout</button>
@@ -154,18 +154,18 @@ function Checkout({subtotal}) {
                 <br />
                 <div>
                     <span className='flex flex-row justify-end'>
-                        <p className='w-24'>Subtotal:</p>
+                        <p className='w-24 mr-9'>Subtotal:</p>
                         <p>{subtotal}</p>
                         <br />
                     </span>
                     <span className='flex flex-row justify-end'>
-                        <p className='w-24'>Shipping:</p>
-                        <p className='mr-5'>{shipping.toFixed(2)}</p>
-                        <p>FREE!</p>
+                        <p>Shipping:</p>
+                        <p className='mr-9'>FREE!</p>
+                        <p>{shipping.toFixed(2)}</p>
                         <br />
                     </span>
                     <span className='flex flex-row justify-end'>
-                        <p className='w-24'>Total:</p>
+                        <p className='w-24 mr-9'>Total:</p>
                         <p>{total}</p>
                         <br />
                     </span>
