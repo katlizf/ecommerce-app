@@ -22,18 +22,18 @@ function Register({closeLogin}) {
 
     const customerDetails = e => {
         switch (e.target.name) {
-            case 'fname': 
+            case 'fname':
                 setFirstName(e.target.value)
-                break;
-            case 'lname': 
+                break
+            case 'lname':
                 setLastName(e.target.value)
-                break;
-            case 'username': 
+                break
+            case 'username':
                 setUsername(e.target.value)
-                break;
-            case 'password': 
+                break
+            case 'password':
                 setPassword(e.target.value)
-                break;
+                break
             default:
                 e.preventDefault()
         }
@@ -56,9 +56,9 @@ function Register({closeLogin}) {
                     content: {
                         position: 'absolute',
                         top: '10%',
-                        left: '35%',
+                        left: '37%',
                         bottom: '10%',
-                        width: '30%',
+                        width: '26%',
                         height: '70%',
                         border: '2px solid #ccc'
                     }
@@ -66,33 +66,35 @@ function Register({closeLogin}) {
                 <div className='flex flex-col'>
                     <p class='modal-title'>Register for a New Account</p>
                     <br />
-                    <label>First Name: </label>
-                    <input
-                        name='fname'
-                        type='text'
-                        onChange={customerDetails}
-                        className='center-input'></input>
-                    <br />
-                    <label>Last Name: </label>
-                    <input
-                        name='lname'
-                        type='text'
-                        onChange={customerDetails}
-                        className='center-input'></input>
-                    <br />
-                    <label>Username:</label>
-                    <input
-                        name='username'
-                        type='text'
-                        onChange={customerDetails}
-                        className='center-input'></input>
-                    <br />
-                    <label>Password:</label>
-                    <input
-                        name='password'
-                        type='password'
-                        onChange={customerDetails}
-                        className='center-input'></input>
+                    <div className='flex flex-col ml-6'>
+                        <label>First Name: </label>
+                        <input
+                            name='fname'
+                            type='text'
+                            onChange={customerDetails}
+                            className='login-input'></input>
+                        <br />
+                        <label>Last Name: </label>
+                        <input
+                            name='lname'
+                            type='text'
+                            onChange={customerDetails}
+                            className='login-input'></input>
+                        <br />
+                        <label>Username:</label>
+                        <input
+                            name='username'
+                            type='text'
+                            onChange={customerDetails}
+                            className='login-input'></input>
+                        <br />
+                        <label>Password:</label>
+                        <input
+                            name='password'
+                            type='password'
+                            onChange={customerDetails}
+                            className='login-input'></input>
+                    </div>
                     <br />
                     <br />
                     <div class='align-modal-btns'>

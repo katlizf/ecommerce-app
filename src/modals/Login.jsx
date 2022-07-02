@@ -22,10 +22,10 @@ function Login() {
         switch (e.target.name) {
             case 'username':
                 setUsername(e.target.value)
-                break;
+                break
             case 'password':
                 setPassword(e.target.value)
-                break;
+                break
             default:
                 e.preventDefault()
         }
@@ -46,28 +46,31 @@ function Login() {
                 style={{
                     content: {
                         position: 'absolute',
-                        top:'10%', 
+                        top: '10%',
                         left: '37%',
                         bottom: '10',
                         width: '26%',
                         height: '60%'
-                    }}}>
+                    }
+                }}>
                 <div className='flex-col'>
                     <p class='modal-title'>Login</p>
                     <br />
-                    <label>Username:</label>
-                    <input
-                        name='username'
-                        type='text'
-                        onChange={userCredentials}
-                        className='center-input'></input>
-                    <br />
-                    <label>Password:</label>
-                    <input
-                        name='password'
-                        type='password'
-                        onChange={userCredentials}
-                        className='center-input'></input>
+                    <div className='flex flex-col ml-6'>
+                        <label>Username:</label>
+                        <input
+                            name='username'
+                            type='text'
+                            onChange={userCredentials}
+                            class='login-input'></input>
+                        <br />
+                        <label>Password:</label>
+                        <input
+                            name='password'
+                            type='password'
+                            onChange={userCredentials}
+                            className='login-input'></input>
+                    </div>
                     <br />
                     <div class='align-modal-btns'>
                         <button class='modal-btns' onClick={closeLogin}>Cancel</button>
@@ -76,7 +79,7 @@ function Login() {
                 </div>
                 <br />
                 <br />
-                <Register closeLogin={closeLogin}/>
+                <Register closeLogin={closeLogin} />
             </ReactModal>
         </div>
     )

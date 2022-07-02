@@ -19,8 +19,8 @@ function Checkout({subtotal}) {
     let shipping = 0.00
     let total = subtotal + shipping
 
-    const refreshPage = ()=>{
-        window.location.reload();
+    const refreshPage = () => {
+        window.location.reload()
     }
 
     const openCheckout = () => {
@@ -31,38 +31,38 @@ function Checkout({subtotal}) {
     }
 
     const shipmentDetails = e => {
-        switch(e.target.name) {
+        switch (e.target.name) {
             case 'fname':
                 setFirstName(e.target.value)
-                break;
+                break
             case 'lname':
                 setLastName(e.target.value)
-                break;
+                break
             case 'address':
                 setAddress(e.target.value)
-                break;
+                break
             case 'city':
                 setCity(e.target.value)
-                break;
+                break
             case 'state':
                 setState(e.target.value)
-                break;
+                break
             case 'zcode':
                 setZipCode(e.target.value)
-                break;
+                break
             case 'phone':
                 setPhone(e.target.value)
-                break;
+                break
             case 'email':
                 setEmail(e.target.value)
-                break;
+                break
             default:
                 e.preventDefault()
         }
     }
 
     const checkoutHandler = () => {
-        const body = {address, city, state, zipCode, phone,firstName, lastName, email}
+        const body = {address, city, state, zipCode, phone, firstName, lastName, email}
         axios.post('http://localhost:4000/api/createShipment', body).then(res => res.data)
         axios.delete('http://localhost:4000/api/emptyCart').then(res => res.data)
         closeCheckout()
@@ -86,91 +86,88 @@ function Checkout({subtotal}) {
                         bottom: '5%',
                         width: '36%',
                         height: '84%',
-                        border: '2px solid #ccc'
                     }
                 }}>
                 <h1 class='modal-title'>You're Almost There!</h1>
                 <br />
                 <h2 className='text-xl'>Please give us your shipment details below</h2>
                 <br />
-                <div className='flex-col'>
-                    <label>First name: 
-                        <input 
-                            className='user-input' 
-                            name='fname' 
+                <div className='flex flex-col ml-6'>
+                    <div>
+                        <label class='checkout-label'>First name:</label>
+                        <input
+                            class='checkout-input'
+                            name='fname'
                             type='text'
-                            onChange={shipmentDetails}></input></label>
+                            onChange={shipmentDetails}></input>
                         <br />
-                    <label>Last name: 
-                        <input 
-                            className='user-input' 
-                            name='lname' 
-                            type='text' 
-                            onChange={shipmentDetails}></input></label>
-                </div>
-                <br />
-                <div className='flex-col'>
-                    <label>Address: 
-                        <input 
-                            className='user-input'
-                            name='address' 
-                            type='text' 
-                            onChange={shipmentDetails}></input></label>
+                        <label class='checkout-label'>Last name:</label>
+                        <input
+                            className='checkout-input'
+                            name='lname'
+                            type='text'
+                            onChange={shipmentDetails}></input>
                             <br />
-                    <label>City: 
-                        <input 
-                            className='user-input' 
-                            name='city' 
-                            type='text' 
-                            onChange={shipmentDetails}></input></label>
+                        <label class='checkout-label'>Address:</label>
+                        <input
+                            className='checkout-input'
+                            name='address'
+                            type='text'
+                            onChange={shipmentDetails}></input>
+                        <br />
+                        <label class='checkout-label'>City:</label>
+                        <input
+                            className='checkout-input'
+                            name='city'
+                            type='text'
+                            onChange={shipmentDetails}></input>
+                        <br />
+                        <label class='checkout-label'>State:</label>
+                        <input
+                            className='checkout-input'
+                            name='state'
+                            type='text'
+                            onChange={shipmentDetails}></input>
+                        <br />
+                        <label class='checkout-label'>Zip code:</label>
+                        <input
+                            className='checkout-input'
+                            name='zcode'
+                            type='text'
+                            onChange={shipmentDetails}></input>
                             <br />
-                    <label>State: 
-                        <input 
-                            className='user-input' 
-                            name='state' 
-                            type='text' 
-                            onChange={shipmentDetails}></input></label>
-                            <br />
-                    <label>Zip code: 
-                        <input 
-                            className='user-input' 
-                            name='zcode' 
-                            type='text' 
-                            onChange={shipmentDetails}></input></label>
-                </div>
-                <br />
-                <div className='flex-col'>
-                    <label>Phone number: 
-                        <input 
-                            className='user-input' 
-                            name='phone' 
-                            type='text' 
-                            onChange={shipmentDetails}></input></label>
-                            <br />
-                    <label>Email:
-                        <input 
-                            className='user-input'
-                             name='email' 
-                             type='email' 
-                             onChange={shipmentDetails}></input></label>
+                        <label class='checkout-label'>Phone number:</label>
+                        <input
+                            className='checkout-input'
+                            name='phone'
+                            type='text'
+                            onChange={shipmentDetails}></input>
+                        <br />
+                        <label class='checkout-label'>Email:</label>
+                        <input
+                            className='checkout-input'
+                            name='email'
+                            type='email'
+                            onChange={shipmentDetails}></input>
+                            </div>
                 </div>
                 <br />
                 <div>
-                    <span className='flex flex-row'>
+                    <span className='flex flex-row justify-end'>
                         <p className='w-24'>Subtotal:</p>
                         <p>{subtotal}</p>
-                    <br />
+                        <br />
                     </span>
-                    <span className='flex flex-row'>
+                    <span className='flex flex-row justify-end'>
                         <p className='w-24'>Shipping:</p>
                         <p className='mr-5'>{shipping.toFixed(2)}</p>
                         <p>FREE!</p>
-                    <br />
+                        <br />
                     </span>
-                    <span className='flex flex-row'>
+                    <span className='flex flex-row justify-end'>
                         <p className='w-24'>Total:</p>
                         <p>{total}</p>
-                    <br />
+                        <br />
                     </span>
                 </div>
                 <br />

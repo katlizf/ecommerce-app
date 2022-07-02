@@ -39,23 +39,23 @@
     .center {
         @apply flex justify-center;
     }
-    .center-input {
-        @apply flex justify-center w-72 border-2;
-    }
-    .user-input {
-        @apply border-2;
-    }
     .modal-title {
         @apply text-2xl;
+    }
+    .login-input {
+        @apply w-72 border-2 hover:border-2 hover:border-light-blue;
+    }
+    .checkout-label {
+        @apply w-72;
+    }
+    .checkout-input {
+        @apply border-2 mb-1 ml-4 hover:border-2 hover:border-light-blue;
     }
     .align-modal-btns {
         @apply flex flex-row justify-around;
     }
     .modal-btns {
         @apply border-b-2 border-b-light-blue hover:text-light-blue;
-    }
-    .checkout-label {
-        @apply w-48;
     }
 }
 
