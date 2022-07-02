@@ -96,7 +96,7 @@ app.post('/api/login', async (req, res) => {
         res.status(200).send(res.data)
     
     if(userExists[0].length === 1) {
-            res.status(500).send('Login successful!')
+            res.status(500).send('Login successful!', userExists)
     } else {
         res.status(200).send("Sorry, we don't reconginze that username or password. Please try again or regiser as a new customer.")
     }

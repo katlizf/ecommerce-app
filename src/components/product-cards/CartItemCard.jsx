@@ -55,7 +55,7 @@ function CartItemCard({data, updateSubtotal}) {
                         <button onClick={() => decreaseHandler()}>-</button>
                         <p>{quantity}</p>
                         <button onClick={() => increaseHandler()}>+</button>
-                        <button className='bg-light-grey w-20' onClick={() => deleteProduct(data)}>Remove</button>
+                        <button className='bg-light-grey w-20 hover:text-red' onClick={() => deleteProduct(data)}>Remove</button>
                     </div>
                 </div>
                 <div className='flex justify-end pt-6'>

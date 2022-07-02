@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 import axios from 'axios'
 
 
-function Register() {
+function Register({closeLogin}) {
 
     const [showRegister, setShowRegister] = useState(false)
     const [firstName, setFirstName] = useState('')
@@ -17,6 +17,7 @@ function Register() {
     }
     const closeRegister = () => {
         setShowRegister(false)
+        closeLogin()
     }
 
     const customerDetails = e => {
@@ -47,53 +48,57 @@ function Register() {
 
     return (
         <div>
-            <button onClick={e => openRegister()}>Register a new account</button>
+            <button class='modal-btns' onClick={e => openRegister()}>Register a new account</button>
             <ReactModal
                 isOpen={showRegister}
                 ariaHideApp={false}
                 style={{
-                    overlay: {
-                        position: 'absolute'
-                    },
                     content: {
                         position: 'absolute',
                         top: '10%',
-                        left: '33%',
+                        left: '35%',
                         bottom: '10%',
-                        right: '10%',
-                        width: '35%',
-                        height: '60%',
+                        width: '30%',
+                        height: '70%',
                         border: '2px solid #ccc'
                     }
                 }}>
                 <div className='flex flex-col'>
-                    <p className='center'>Register for a New Account</p>
-                    <label className='center'>First Name: </label>
+                    <p class='modal-title'>Register for a New Account</p>
+                    <br />
+                    <label>First Name: </label>
                     <input
                         name='fname'
                         type='text'
                         onChange={customerDetails}
                         className='center-input'></input>
-                    <label className='center'>Last Name: </label>
+                    <br />
+                    <label>Last Name: </label>
                     <input
                         name='lname'
                         type='text'
                         onChange={customerDetails}
                         className='center-input'></input>
-                    <label className='center'>Username</label>
+                    <br />
+                    <label>Username:</label>
                     <input
                         name='username'
                         type='text'
                         onChange={customerDetails}
                         className='center-input'></input>
-                    <label className='center'>Password</label>
+                    <br />
+                    <label>Password:</label>
                     <input
                         name='password'
                         type='password'
                         onChange={customerDetails}
                         className='center-input'></input>
-                    <button onClick={closeRegister}>Cancel</button>
-                    <button onClick={registerHandler}>Submit</button>
+                    <br />
+                    <br />
+                    <div class='align-modal-btns'>
+                        <button class='modal-btns' onClick={closeRegister}>Cancel</button>
+                        <button class='modal-btns' onClick={registerHandler}>Submit</button>
+                    </div>
                 </div>
             </ReactModal>
         </div>

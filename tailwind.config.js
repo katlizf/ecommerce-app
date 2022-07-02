@@ -10,16 +10,11 @@ module.exports = {
     },
     colors: {
         'green': '#1EAE5A',
-        'dark-blue': '#233A80',
+        'light-blue': '#29b6f6',
         'orange': '#FF7C1F',
         'red': '#E01600',
-        'purple': '#783F8E',
-        'yellow': '#F4E409',
-        'black': '#050000',
         'white': '#ffffff',
-        'grey': '#949494',
-        'light-grey': '#DEDEDE',
-        'reddish-orange': '#F5653D'
+        'light-grey': '#DEDEDE'
     }
   },
   plugins: [

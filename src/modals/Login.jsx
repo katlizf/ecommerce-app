@@ -39,43 +39,44 @@ function Login() {
 
     return (
         <div>
-            <button onClick={e => openLogin()} id='link-btn'>Login</button>
+            <button id='link-btn' onClick={e => openLogin()}>Login</button>
             <ReactModal
                 isOpen={showLogin}
                 ariaHideApp={false}
                 style={{
-                    overlay: {
-                        position: 'absolute'
-                    },
                     content: {
                         position: 'absolute',
                         top:'10%', 
-                        left:'33%',
-                        bottom: '10%',
-                        right: '10%',
-                        width: '35%',
-                        height: '60%',
-                        border:'2px solid #ccc'
-                        // background: 'orange'
+                        left: '37%',
+                        bottom: '10',
+                        width: '26%',
+                        height: '60%'
                     }}}>
-                <div className='flex flex-col'>
-                    <p className='center'>Login</p>
-                    <label className='center'>Username</label>
+                <div className='flex-col'>
+                    <p class='modal-title'>Login</p>
+                    <br />
+                    <label>Username:</label>
                     <input
                         name='username'
                         type='text'
                         onChange={userCredentials}
                         className='center-input'></input>
-                    <label className='center'>Password</label>
+                    <br />
+                    <label>Password:</label>
                     <input
                         name='password'
                         type='password'
                         onChange={userCredentials}
                         className='center-input'></input>
-                    <button onClick={closeLogin}>Cancel</button>
-                    <button onClick={checkUserExists}>Login</button>
+                    <br />
+                    <div class='align-modal-btns'>
+                        <button class='modal-btns' onClick={closeLogin}>Cancel</button>
+                        <button class='modal-btns' onClick={checkUserExists}>Login</button>
+                    </div>
                 </div>
-                <Register />
+                <br />
+                <br />
+                <Register closeLogin={closeLogin}/>
             </ReactModal>
         </div>
     )

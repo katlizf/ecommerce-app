@@ -74,31 +74,33 @@ function Checkout({subtotal}) {
         <div className='flex justify-end pb-28'>
             <button
                 onClick={e => openCheckout()}
-                className='border-2 w-24 bg-green'>Checkout</button>
+                className='w-24 h-8 bg-orange hover:bg-green'>Checkout</button>
             <ReactModal
                 isOpen={showCheckout}
                 ariaHideApp={false}
                 style={{
                     content: {
                         position: 'absolute',
-                        top: '10%',
-                        left: '33%',
-                        bottom: '10%',
-                        right: '10%',
-                        width: '45%',
-                        height: '80%',
+                        top: '8%',
+                        left: '32%',
+                        bottom: '5%',
+                        width: '36%',
+                        height: '84%',
                         border: '2px solid #ccc'
                     }
                 }}>
-                <h1>You're Almost There!</h1>
-                <h2>Please complete your shipment details below to checkout</h2>
-                <div className='flex flex-col'>
+                <h1 class='modal-title'>You're Almost There!</h1>
+                <br />
+                <h2 className='text-xl'>Please give us your shipment details below</h2>
+                <br />
+                <div className='flex-col'>
                     <label>First name: 
                         <input 
                             className='user-input' 
                             name='fname' 
                             type='text'
                             onChange={shipmentDetails}></input></label>
+                        <br />
                     <label>Last name: 
                         <input 
                             className='user-input' 
@@ -106,25 +108,29 @@ function Checkout({subtotal}) {
                             type='text' 
                             onChange={shipmentDetails}></input></label>
                 </div>
-                <div className='flex flex-col'>
+                <br />
+                <div className='flex-col'>
                     <label>Address: 
                         <input 
                             className='user-input'
                             name='address' 
                             type='text' 
                             onChange={shipmentDetails}></input></label>
+                            <br />
                     <label>City: 
                         <input 
                             className='user-input' 
                             name='city' 
                             type='text' 
                             onChange={shipmentDetails}></input></label>
+                            <br />
                     <label>State: 
                         <input 
                             className='user-input' 
                             name='state' 
                             type='text' 
                             onChange={shipmentDetails}></input></label>
+                            <br />
                     <label>Zip code: 
                         <input 
                             className='user-input' 
@@ -132,37 +138,47 @@ function Checkout({subtotal}) {
                             type='text' 
                             onChange={shipmentDetails}></input></label>
                 </div>
-                <div className='flex flex-col'>
+                <br />
+                <div className='flex-col'>
                     <label>Phone number: 
                         <input 
                             className='user-input' 
                             name='phone' 
                             type='text' 
                             onChange={shipmentDetails}></input></label>
-                    <label>Email: 
+                            <br />
+                    <label>Email:
                         <input 
                             className='user-input'
                              name='email' 
                              type='email' 
                              onChange={shipmentDetails}></input></label>
                 </div>
+                <br />
                 <div>
                     <span className='flex flex-row'>
-                        <p>Subtotal: </p>
+                        <p className='w-24'>Subtotal:</p>
                         <p>{subtotal}</p>
+                    <br />
                     </span>
                     <span className='flex flex-row'>
-                        <p>shipping: </p>
-                        <p>{shipping.toFixed(2)}</p>
-                        <p>FREE</p>
+                        <p className='w-24'>Shipping:</p>
+                        <p className='mr-5'>{shipping.toFixed(2)}</p>
+                        <p>FREE!</p>
+                    <br />
                     </span>
                     <span className='flex flex-row'>
-                        <p>Total: </p>
+                        <p className='w-24'>Total:</p>
                         <p>{total}</p>
+                    <br />
                     </span>
                 </div>
-                <button onClick={closeCheckout}>Cancel</button>
-                <button onClick={checkoutHandler}>Checkout</button>
+                <br />
+                <div class='align-modal-btns'>
+                    <button class='modal-btns' onClick={closeCheckout}>Continue Shopping?</button>
+                    <button class='modal-btns' onClick={checkoutHandler}>Checkout!</button>
+                </div>
+                <br />
             </ReactModal>
         </div>
     )
