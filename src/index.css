@@ -40,7 +40,7 @@
         @apply flex justify-center;
     }
     .modal-title {
-        @apply text-2xl;
+        @apply text-2xl text-orange;
     }
     .login-input {
         @apply w-72 border-2 hover:border-2 hover:border-light-blue;
@@ -49,7 +49,10 @@
         @apply w-72;
     }
     .checkout-input {
-        @apply border-2 mb-1 ml-4 hover:border-2 hover:border-light-blue;
+        @apply border-2 mb-1 w-40 hover:border-2 hover:border-light-blue;
+    }
+    .checkout-input-lg {
+        @apply border-2 mb-1 w-96 hover:border-2 hover:border-light-blue;
     }
     .align-modal-btns {
         @apply flex flex-row justify-around;

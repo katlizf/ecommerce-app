@@ -81,11 +81,11 @@ function Checkout({subtotal}) {
                 style={{
                     content: {
                         position: 'absolute',
-                        top: '8%',
-                        left: '32%',
+                        top: '7%',
+                        left: '30%',
                         bottom: '5%',
-                        width: '36%',
-                        height: '84%',
+                        width: '40%',
+                        height: '86%',
                     }
                 }}>
                 <h1 class='modal-title'>You're Almost There!</h1>
@@ -94,62 +94,74 @@ function Checkout({subtotal}) {
                 <br />
                 <div className='flex flex-col ml-6'>
                     <div>
-                        <label class='checkout-label'>First name:</label>
-                        <input
-                            class='checkout-input'
-                            name='fname'
-                            type='text'
-                            onChange={shipmentDetails}></input>
-                        <br />
-                        <label class='checkout-label'>Last name:</label>
-                        <input
-                            className='checkout-input'
-                            name='lname'
-                            type='text'
-                            onChange={shipmentDetails}></input>
-                            <br />
-                        <label class='checkout-label'>Address:</label>
-                        <input
-                            className='checkout-input'
-                            name='address'
-                            type='text'
-                            onChange={shipmentDetails}></input>
-                        <br />
-                        <label class='checkout-label'>City:</label>
-                        <input
-                            className='checkout-input'
-                            name='city'
-                            type='text'
-                            onChange={shipmentDetails}></input>
-                        <br />
-                        <label class='checkout-label'>State:</label>
-                        <input
-                            className='checkout-input'
-                            name='state'
-                            type='text'
-                            onChange={shipmentDetails}></input>
-                        <br />
-                        <label class='checkout-label'>Zip code:</label>
-                        <input
-                            className='checkout-input'
-                            name='zcode'
-                            type='text'
-                            onChange={shipmentDetails}></input>
-                            <br />
-                        <label class='checkout-label'>Phone number:</label>
-                        <input
-                            className='checkout-input'
-                            name='phone'
-                            type='text'
-                            onChange={shipmentDetails}></input>
-                        <br />
-                        <label class='checkout-label'>Email:</label>
-                        <input
-                            className='checkout-input'
-                            name='email'
-                            type='email'
-                            onChange={shipmentDetails}></input>
+                        <div className='flex flex-row space-x-3'>
+                            <div className='flex flex-col'>
+                                <label>First name:</label>
+                                <input
+                                    class='checkout-input'
+                                    name='fname'
+                                    type='text'
+                                    onChange={shipmentDetails}></input>
                             </div>
+                            <div className='flex flex-col'>
+                                <label class='checkout-label'>Last name:</label>
+                                <input
+                                    className='checkout-input'
+                                    name='lname'
+                                    type='text'
+                                    onChange={shipmentDetails}></input>
+                            </div>
+                        </div>
+                        <div className='flex flex-col'>
+                            <label class='checkout-label'>Address:</label>
+                            <input
+                                className='checkout-input-lg'
+                                name='address'
+                                type='text'
+                                onChange={shipmentDetails}></input>
+                        </div>
+                        <div className='flex flex-row space-x-3'>
+                            <div className='flex flex-col w-40'>
+                                <label class='checkout-label'>City:</label>
+                                <input
+                                    className='checkout-input'
+                                    name='city'
+                                    type='text'
+                                    onChange={shipmentDetails}></input>
+                            </div>
+                            <div className='flex flex-col w-40'>
+                                <label class='checkout-label'>State:</label>
+                                <input
+                                    className='checkout-input'
+                                    name='state'
+                                    type='text'
+                                    onChange={shipmentDetails}></input>
+                            </div>
+                            <div>
+                                <label class='checkout-label w-40'>Zip code:</label>
+                                <input
+                                    className='checkout-input'
+                                    name='zcode'
+                                    type='text'
+                                    onChange={shipmentDetails}></input>
+                            </div>
+                        </div>
+                        <div className='flex flex-col'>
+                            <label class='checkout-label'>Phone number:</label>
+                            <input
+                                className='checkout-input-lg'
+                                name='phone'
+                                type='text'
+                                onChange={shipmentDetails}></input>
+
+                            <label class='checkout-label'>Email:</label>
+                            <input
+                                className='checkout-input-lg'
+                                name='email'
+                                type='email'
+                                onChange={shipmentDetails}></input>
+                        </div>
+                    </div>
                 </div>
                 <br />
                 <div>
