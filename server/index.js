@@ -16,18 +16,18 @@ app.get('/api/getTitles', async (req, res) => {
 
 app.get('/api/getApparel', async (req, res) => {
     let allApparel = await sequelize.query(`
-    SELECT p.id, p.product_name, p.description, p.price, p.image, p.anime, a.name FROM products p
+    SELECT p.product_id, p.product_name, p.description, p.price, p.image, p.anime, a.name FROM products p
         JOIN anime a
-        ON p.anime = a.id
+        ON p.anime = a.anime_id
         WHERE type = 1;`)
         res.status(200).send(allApparel[0])
 })
 
 app.get('/api/getCollectables', async (req, res) => {
     let allCollectables = await sequelize.query(`
-        SELECT p.id, p.product_name, p.description, p.price, p.image, p.anime, a.name FROM products p
+        SELECT p.product_id, p.product_name, p.description, p.price, p.image, p.anime, a.name FROM products p
         JOIN anime a
-        ON p.anime = a.id
+        ON p.anime = a.anime_id
         WHERE type = 2;`)
         res.status(200).send(allCollectables[0])
 })
@@ -36,21 +36,21 @@ app.get('/api/getPrice', async (req, res) => {
     let price = await sequelize.query(`
         SELECT p.price FROM cart_items c
         JOIN products p
-        ON c.product_number = p.id
+        ON c.product_number = p.product_id
         ;`)
         res.status(200).send(price[0])
 })
 
 app.post('/api/addToCart', async (req, res) => {
-    let {id} = req.body
+    let {prodId, custId} = req.body
     const inCart = await sequelize.query(`
         SELECT * FROM cart_items
-        WHERE product_number = ${id};`)
+        WHERE product_number = ${prodId};`)
 
     if (inCart[0].length === 0) { 
         await sequelize.query(`
-            INSERT INTO cart_items (product_number)
-            VALUES (${id});`)
+            INSERT INTO cart_items (customer, product_number)
+            VALUES (${custId},${prodId});`)
             res.status(200).send('Successfully added to cart!')
     } else {
         res.status(500).send('This product is already in your cart.')
@@ -59,9 +59,9 @@ app.post('/api/addToCart', async (req, res) => {
 
 app.get('/api/getCartProducts', async (req, res) => {
     let cartProducts = await sequelize.query(`
-        SELECT c.id, c.customer, c.product_number, p.product_name, p.price, p.image FROM cart_items c
+        SELECT c.cart_item_id, c.customer, c.product_number, p.product_name, p.price, p.image FROM cart_items c
         JOIN products p
-        ON c.product_number = p.id;`)
+        ON c.product_number = p.product_id;`)
         res.status(200).send(cartProducts[0])
 })
 
@@ -69,7 +69,7 @@ app.delete('/api/deleteProduct/:id', async (req, res) => {
     let {id} = req.params
     await sequelize.query(`
         DELETE FROM cart_items
-        WHERE cart_items.id = ${id}`)
+        WHERE cart_items.cart_item_id = ${id}`)
         res.status(200)
 })
 
@@ -93,19 +93,18 @@ app.post('/api/login', async (req, res) => {
         SELECT * FROM customer c
         WHERE c.username = '${username}' 
         AND c.password = '${password}';`)
-        res.status(200).send(res.data)
     
     if(userExists[0].length === 1) {
-            res.status(500).send('Login successful!', userExists)
+            res.status(200).send('Login successful!')
     } else {
-        res.status(200).send("Sorry, we don't reconginze that username or password. Please try again or regiser as a new customer.")
+        res.status(500).send("Sorry, we don't reconginze that username or password. Please try again or regiser as a new customer.")
     }
 })
 
 app.post('/api/register', async (req, res) => {
     let {username, password, firstName, lastName} = req.body
     await sequelize.query(`
-        INSERT INTO customer (username, password first_name, last_name)
+        INSERT INTO customer (username, password, first_name, last_name)
         VALUES ('${username}', '${password}', '${firstName}', '${lastName}');`)
         res.status(200)
 })
