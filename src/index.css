@@ -13,52 +13,177 @@
 
 @layer components {
     .card-container {
-        @apply flex flex-row flex-wrap justify-end pr-12 py-6;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        padding-right: 3rem;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem
     }
     .product-card {
-        @apply w-72 py-10 mx-9;
+        width: 16rem;
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
+        margin-right: 2.5rem;
+        margin-left: 2.5rem;
     }
     .product-img {
-        @apply w-64 h-72;
+        width: 16rem;
+        height: 18rem;
     }
-    .prod-desc {
-        @apply h-auto;
+    .text {
+        font-size: 1.125rem;
     }
     .cart-btn {
-        @apply bg-orange w-24 cursor-pointer hover:text-white;
+        background-color: orange;
+        width: 6rem;
+        cursor: pointer;
+        font-size: 1.125rem;
+    }
+    .cart-btn:hover {
+        color: white;
     }
     .card-row {
-        @apply flex flex-row justify-between;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
     }
     .link-btn {
-        @apply w-28 border-x hover:text-white;
+        width: 7rem;
+        border-right-width: 1px;
+        border-left-width: 1px;
+    }
+    .link-btn:hover{
+        color: white;
     }
     .link-btn-lg {
-        @apply w-max pr-5 pl-7 border-x hover:text-white;
+        width: max-content;
+        padding-right: 1.25rem;
+        padding-left: 1.75rem;
+        border-right: 1px;
+        border-left: 1px;
+    }
+    .link-btn-lg:hover {
+        color: white;
     }
     .center {
-        @apply flex justify-center;
+        display: flex;
+        justify-content: center;
     }
     .modal-title {
-        @apply text-2xl text-orange;
+        font-size: 1.5rem;
+        color: orange;
     }
     .login-input {
-        @apply w-72 border-2 hover:border-2 hover:border-light-blue;
+        width: 18rem;
+        border-width: 2px;
+    }
+    .login-input:hover {
+        border-width: 2px;
+        border-color: #29b6f6;
     }
     .checkout-label {
-        @apply w-72;
+        width: 18rem;
     }
     .checkout-input {
-        @apply border-2 mb-1 w-40 hover:border-2 hover:border-light-blue;
+        border-width: 2px;
+        margin-bottom: 0.25rem;
+        width: 10rem;
+    }
+    .checkout-input:hover {
+        border-width: 2px;
+        border-color: #29b6f6;
     }
     .checkout-input-lg {
-        @apply border-2 mb-1 w-96 hover:border-2 hover:border-light-blue;
+        border-width: 2px;
+        margin-bottom: 0.25px;
+        width: 24rem;
+    }
+    .checkout-input-lg:hover {
+        border-width: 2px;
+        border-color: #29b6f6;
     }
     .align-modal-btns {
-        @apply flex flex-row justify-around;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
     }
     .modal-btns {
-        @apply border-b-2 border-b-light-blue hover:text-light-blue;
+        border-bottom-width: 2px;
+        border-color: #29b6f6;
+    }
+    .modal-btns:hover {
+        color: #29b6f6; 
+    }
+}
+
+@media (max-width: 1024px) {
+    .product-card {
+        width:10rem;
+        padding-top: 0.75rem;
+        padding-bottom: 2em;
+        margin-right: 0.75rem;
+        margin-left: 0.75rem;
+    }
+    .product-img {
+        width: 10rem;
+        height: 10rem;
+    }
+    .text {
+        font-size: .875rem;
+    }
+    .cart-btn {
+        background-color: orange;
+        width: 5rem;
+        cursor: pointer;
+        font-size: .875rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .product-card {
+        width:8rem;
+        padding-top: 1rem;
+        padding-bottom: 1.5rem;
+        margin-right: 1rem;
+        margin-left: 1rem;
+    }
+    .product-img {
+        width: 8rem;
+        height: 10rem;
+    }
+    .text {
+        font-size: 1rem;
+    }
+    .cart-btn {
+        background-color: orange;
+        width: 6rem;
+        cursor: pointer;
+        font-size: .875rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .product-card {
+        width: 8rem;
+        padding-top: 0.5rem;
+        padding-bottom: 1.5rem;
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
+    }
+    .product-img {
+        width: 7rem;
+        height: 8rem;
+    }
+    .text {
+        font-size: 0.75rem;
+    }
+    .cart-btn {
+        background-color: orange;
+        width: 5rem;
+        cursor: pointer;
+        font-size: .75rem;
     }
 }
 
