@@ -48,7 +48,7 @@ function Register({closeLogin}) {
 
     return (
         <div>
-            <button class='modal-btns' onClick={e => openRegister()}>Register a new account</button>
+            <button className='modal-btns' onClick={e => openRegister()}>Register a new account</button>
             <ReactModal
                 isOpen={showRegister}
                 ariaHideApp={false}
@@ -64,7 +64,7 @@ function Register({closeLogin}) {
                     }
                 }}>
                 <div className='flex flex-col'>
-                    <p class='modal-title'>Register for a New Account</p>
+                    <p className='modal-title'>Register for a New Account</p>
                     <br />
                     <div className='flex flex-col ml-6'>
                         <label>First Name: </label>
@@ -97,9 +97,9 @@ function Register({closeLogin}) {
                     </div>
                     <br />
                     <br />
-                    <div class='align-modal-btns'>
-                        <button class='modal-btns' onClick={closeRegister}>Cancel</button>
-                        <button class='modal-btns' onClick={registerHandler}>Submit</button>
+                    <div className='align-modal-btns'>
+                        <button className='modal-btns' onClick={closeRegister}>Cancel</button>
+                        <button className='modal-btns' onClick={registerHandler}>Submit</button>
                     </div>
                 </div>
             </ReactModal>

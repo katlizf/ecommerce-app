@@ -88,7 +88,7 @@ function Checkout({subtotal}) {
                         height: '86%',
                     }
                 }}>
-                <h1 class='modal-title'>You're Almost There!</h1>
+                <h1 className='modal-title'>You're Almost There!</h1>
                 <br />
                 <h2 className='text-xl'>Please give us your shipment details below</h2>
                 <br />
@@ -98,13 +98,13 @@ function Checkout({subtotal}) {
                             <div className='flex flex-col'>
                                 <label>First name:</label>
                                 <input
-                                    class='checkout-input'
+                                    className='checkout-input'
                                     name='fname'
                                     type='text'
                                     onChange={shipmentDetails}></input>
                             </div>
                             <div className='flex flex-col'>
-                                <label class='checkout-label'>Last name:</label>
+                                <label className='checkout-label'>Last name:</label>
                                 <input
                                     className='checkout-input'
                                     name='lname'
@@ -113,7 +113,7 @@ function Checkout({subtotal}) {
                             </div>
                         </div>
                         <div className='flex flex-col'>
-                            <label class='checkout-label'>Address:</label>
+                            <label className='checkout-label'>Address:</label>
                             <input
                                 className='checkout-input-lg'
                                 name='address'
@@ -122,7 +122,7 @@ function Checkout({subtotal}) {
                         </div>
                         <div className='flex flex-row space-x-3'>
                             <div className='flex flex-col w-40'>
-                                <label class='checkout-label'>City:</label>
+                                <label className='checkout-label'>City:</label>
                                 <input
                                     className='checkout-input'
                                     name='city'
@@ -130,7 +130,7 @@ function Checkout({subtotal}) {
                                     onChange={shipmentDetails}></input>
                             </div>
                             <div className='flex flex-col w-40'>
-                                <label class='checkout-label'>State:</label>
+                                <label className='checkout-label'>State:</label>
                                 <input
                                     className='checkout-input'
                                     name='state'
@@ -138,7 +138,7 @@ function Checkout({subtotal}) {
                                     onChange={shipmentDetails}></input>
                             </div>
                             <div>
-                                <label class='checkout-label w-40'>Zip code:</label>
+                                <label className='checkout-label w-40'>Zip code:</label>
                                 <input
                                     className='checkout-input'
                                     name='zcode'
@@ -147,14 +147,14 @@ function Checkout({subtotal}) {
                             </div>
                         </div>
                         <div className='flex flex-col'>
-                            <label class='checkout-label'>Phone number:</label>
+                            <label className='checkout-label'>Phone number:</label>
                             <input
                                 className='checkout-input-lg'
                                 name='phone'
                                 type='text'
                                 onChange={shipmentDetails}></input>
 
-                            <label class='checkout-label'>Email:</label>
+                            <label className='checkout-label'>Email:</label>
                             <input
                                 className='checkout-input-lg'
                                 name='email'
@@ -183,9 +183,9 @@ function Checkout({subtotal}) {
                     </span>
                 </div>
                 <br />
-                <div class='align-modal-btns'>
-                    <button class='modal-btns' onClick={closeCheckout}>Continue Shopping?</button>
-                    <button class='modal-btns' onClick={checkoutHandler}>Checkout!</button>
+                <div className='align-modal-btns'>
+                    <button className='modal-btns' onClick={closeCheckout}>Continue Shopping?</button>
+                    <button className='modal-btns' onClick={checkoutHandler}>Checkout!</button>
                 </div>
                 <br />
             </ReactModal>

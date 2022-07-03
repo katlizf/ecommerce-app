@@ -12,7 +12,7 @@ function FilterBar({allProducts, setallProducts}) {
         return anime.name.includes(selected)
         }).map((anime, index) => {
             return (
-                <ProductCard key={index} id={anime.id} product={anime} setallProducts={setallProducts} allProducts={allProducts} />
+                <ProductCard key={index} id={anime.anime_id} product={anime} setallProducts={setallProducts} allProducts={allProducts} />
             )
     })
 
@@ -23,7 +23,7 @@ function FilterBar({allProducts, setallProducts}) {
     }, [])
 
     const titleOptions = allTitles.map((title, index) => {
-        return <option value={title.name}>{title.name}</option>
+        return <option key={title.anime_id} value={title.name}>{title.name}</option>
     })
 
     return (

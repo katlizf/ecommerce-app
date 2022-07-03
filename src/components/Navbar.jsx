@@ -16,16 +16,16 @@ function Navbar() {
             </div>
             <div className='flex justify-end items-center mr-20'>
                 <Link to='/'>
-                    <button class='link-btn'>Home</button>
+                    <button className='link-btn'>Home</button>
                 </Link>
                 <Link to='/apparel'>
-                    <button class='link-btn'>Apparel</button>
+                    <button className='link-btn'>Apparel</button>
                 </Link>
                 <Link to='/collectables'>
-                    <button class='link-btn-lg'>Collectables</button>
+                    <button className='link-btn-lg'>Collectables</button>
                 </Link>
                 <Link to='/cart'>
-                    <button class='link-btn'>Cart</button>
+                    <button className='link-btn'>Cart</button>
                 </Link>
                 <Login />
             </div>
