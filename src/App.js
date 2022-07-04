@@ -20,14 +20,26 @@ function App() {
 
         axios.post(`http://localhost:4000/api/login`, body).then(res => {
             alert('Login Successful!')
-            setLoggedInUser(res.data[0].customer_id)})
-            .catch(err => alert('Error'))        
-        // closeLogin()
+            setLoggedInUser(res.data[0].customer_id)
+            document.getElementById('login/logout').textContent='Logout'
+           })
+            .catch(err => alert("Sorry, we don't recognize that username or password. Please try again or register as a new customer."))        
     }
+
+    const logout = () => {
+        const logoutTrue = document.getElementById('login/logout').textContent==='Logout'
+        if(logoutTrue) {
+            setLoggedInUser(0)
+        }
+        document.getElementById('login/logout').textContent='Login'
+    }
+
+
+    console.log(loggedInUser)
 
     return (
         <div>
-            <Navbar checkCustExists={checkCustExists} setUsername={setUsername} setPassword={setPassword}/>
+            <Navbar checkCustExists={checkCustExists} setUsername={setUsername} setPassword={setPassword} logout={logout} loggedInUser={loggedInUser} />
             <Routes>
                 <Route path='/' element={<HomePage />} />
                 <Route path='/apparel' element={<ApparelPage loggedInUser={loggedInUser}/>} />

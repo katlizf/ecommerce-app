@@ -1,16 +1,17 @@
 import React, {useState} from 'react'
 import ReactModal from 'react-modal'
 import ReactDOM from 'react-dom'
-import axios from 'axios'
 import Register from './Register'
 
 
-function Login({checkCustExists, setUsername, setPassword}) {
+function Login({checkCustExists, setUsername, setPassword, logout, loggedInUser}) {
 
     const [showLogin, setShowLogin] = useState(false)
 
     const openLogin = () => {
-        setShowLogin(true)
+        if (loggedInUser === 0) {
+            setShowLogin(true)
+        }            
     }
     const closeLogin = () => {
         setShowLogin(false)
@@ -32,7 +33,9 @@ function Login({checkCustExists, setUsername, setPassword}) {
 
     return (
         <div>
-            <button className='link-btn' onClick={e => openLogin()}>Login</button>
+            <button id='login/logout' className='link-btn' onClick={e => {
+                openLogin()
+                logout()}}>Login</button>
             <ReactModal
                 isOpen={showLogin}
                 ariaHideApp={false}
@@ -67,8 +70,10 @@ function Login({checkCustExists, setUsername, setPassword}) {
                     <br />
                     <div className='align-modal-btns'>
                         <button className='modal-btns' onClick={closeLogin}>Cancel</button>
-                        <button className='modal-btns' onClick= {() => {checkCustExists()
-                        closeLogin()}}>Login</button>
+                        <button className='modal-btns' onClick= {() => {
+                            checkCustExists()
+                            closeLogin()
+                            }}>Login</button>
                     </div>
                 </div>
                 <br />
