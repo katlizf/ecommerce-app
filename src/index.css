@@ -49,6 +49,15 @@
         flex-direction: row;
         justify-content: space-between;
     }
+    .navigation {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 5rem;
+    }
+    .hamburger {
+        display: none;
+    }
     .link-btn {
         width: 7rem;
         border-right-width: 1px;
@@ -56,7 +65,7 @@
     }
     .link-btn:hover{
         color: white;
-    }
+    }    
     .link-btn-lg {
         width: max-content;
         padding-right: 1.25rem;
@@ -139,6 +148,9 @@
         cursor: pointer;
         font-size: .875rem;
     }
+    .hamburger {
+        display: none;
+    }
 }
 
 @media (max-width: 768px) {
@@ -146,21 +158,28 @@
         width:8rem;
         padding-top: 1rem;
         padding-bottom: 1.5rem;
-        margin-right: 1rem;
-        margin-left: 1rem;
+        margin-right: 0.75rem;
+        margin-left: 0.75rem;
     }
     .product-img {
         width: 8rem;
         height: 10rem;
     }
     .text {
-        font-size: 1rem;
+        font-size: .75rem;
     }
     .cart-btn {
         background-color: orange;
-        width: 6rem;
+        width: 5rem;
         cursor: pointer;
         font-size: .875rem;
+    }
+    .navigation {
+        display: none;
+    }
+    .hamburger {
+        display: flex;
+        width: 50px;
     }
 }
 
@@ -181,9 +200,15 @@
     }
     .cart-btn {
         background-color: orange;
-        width: 5rem;
+        width: 4rem;
         cursor: pointer;
         font-size: .75rem;
+    }
+    .navigation {
+        display: none;
+    }
+    .hamburger {
+        display: flex;
     }
 }
 

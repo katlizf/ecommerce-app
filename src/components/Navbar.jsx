@@ -2,9 +2,12 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import Login from '../modals/Login'
 import HatIcon from '../images/hat-icon.png'
+import hamburgerIcon from '../images/hamburger.png'
+import Hamburger from './Hamburger'
 
 
 function Navbar() {
+
 
     return (
         <div className='flex flex-row bg-orange justify-between h-24'>
@@ -12,9 +15,9 @@ function Navbar() {
                 <a href='/'>
                     <img src={HatIcon} alt="Kisuke Urahara's Hat" className='h-20 w-20 mr-5 mt-1'/>
                 </a>
-                <h1 className='flex items-center text-3xl tracking-wider'>Weebs R Us!</h1>
+                <h1 className='flex items-center text-3xl tracking-wider'>Weebs R Us!</h1>  
             </div>
-            <div className='flex justify-end items-center mr-20'>
+            <div className='navigation'>
                 <Link to='/'>
                     <button className='link-btn'>Home</button>
                 </Link>
@@ -28,6 +31,10 @@ function Navbar() {
                     <button className='link-btn'>Cart</button>
                 </Link>
                 <Login />
+            </div>
+            <div className='hamburger'>
+                <img src={hamburgerIcon} alt='hamburger icon'></img>
+                <Hamburger className='hamburger-menu'/>
             </div>
         </div>
     )
