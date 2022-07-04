@@ -5,11 +5,9 @@ import axios from 'axios'
 import Register from './Register'
 
 
-function Login() {
+function Login({checkCustExists, setUsername, setPassword}) {
 
     const [showLogin, setShowLogin] = useState(false)
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
 
     const openLogin = () => {
         setShowLogin(true)
@@ -31,15 +29,10 @@ function Login() {
         }
     }
 
-    const checkUserExists = () => {
-        const body = {username, password}
-        axios.post(`http://localhost:4000/api/login`, body).then(res => alert(res.data)).catch(err => alert(err.response.data))
-        closeLogin()
-    }
 
     return (
         <div>
-            <button class='link-btn' onClick={e => openLogin()}>Login</button>
+            <button className='link-btn' onClick={e => openLogin()}>Login</button>
             <ReactModal
                 isOpen={showLogin}
                 ariaHideApp={false}
@@ -54,7 +47,7 @@ function Login() {
                     }
                 }}>
                 <div className='flex-col'>
-                    <p class='modal-title'>Login</p>
+                    <p className='modal-title'>Login</p>
                     <br />
                     <div className='flex flex-col ml-6'>
                         <label>Username:</label>
@@ -62,7 +55,7 @@ function Login() {
                             name='username'
                             type='text'
                             onChange={userCredentials}
-                            class='login-input'></input>
+                            className='login-input'></input>
                         <br />
                         <label>Password:</label>
                         <input
@@ -72,9 +65,10 @@ function Login() {
                             className='login-input'></input>
                     </div>
                     <br />
-                    <div class='align-modal-btns'>
-                        <button class='modal-btns' onClick={closeLogin}>Cancel</button>
-                        <button class='modal-btns' onClick={checkUserExists}>Login</button>
+                    <div className='align-modal-btns'>
+                        <button className='modal-btns' onClick={closeLogin}>Cancel</button>
+                        <button className='modal-btns' onClick= {() => {checkCustExists()
+                        closeLogin()}}>Login</button>
                     </div>
                 </div>
                 <br />

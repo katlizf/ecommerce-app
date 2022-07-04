@@ -6,7 +6,7 @@ import hamburgerIcon from '../images/hamburger.png'
 import Hamburger from './Hamburger'
 
 
-function Navbar() {
+function Navbar({checkCustExists, setUsername, setPassword}) {
 
 
     return (
@@ -30,7 +30,7 @@ function Navbar() {
                 <Link to='/cart'>
                     <button className='link-btn'>Cart</button>
                 </Link>
-                <Login />
+                <Login checkCustExists={checkCustExists} setUsername={setUsername} setPassword={setPassword}/>
             </div>
             <div className='hamburger'>
                 <img src={hamburgerIcon} alt='hamburger icon'></img>

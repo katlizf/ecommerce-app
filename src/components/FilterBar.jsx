@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react'
 import ProductCard from './product-cards/ProductCard'
 
 
-function FilterBar({allProducts, setallProducts}) {
+function FilterBar({allProducts, setallProducts, loggedInUser}) {
 
     const [allTitles, setAllTitles] = useState([])
     const [selected, setSelected] = useState('')
@@ -12,7 +12,7 @@ function FilterBar({allProducts, setallProducts}) {
         return anime.name.includes(selected)
         }).map((anime, index) => {
             return (
-                <ProductCard key={index} id={anime.anime_id} product={anime} setallProducts={setallProducts} allProducts={allProducts} />
+                <ProductCard key={index} id={anime.anime_id} product={anime} setallProducts={setallProducts} allProducts={allProducts} loggedInUser={loggedInUser}/>
             )
     })
 

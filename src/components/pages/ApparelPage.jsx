@@ -4,7 +4,7 @@ import FilterBar from '../FilterBar'
 import FreeShipping from '../banners/FreeShipping'
 
 
-function ApparelPage() {
+function ApparelPage({loggedInUser}) {
 
     const [allProducts, setallProducts] = useState([])
 
@@ -16,7 +16,7 @@ function ApparelPage() {
         <div>
             <FreeShipping />
             <FilterBar
-                allProducts={allProducts} setallProducts={setallProducts} />
+                allProducts={allProducts} setallProducts={setallProducts} loggedInUser={loggedInUser}/>
         </div>
     )
 }

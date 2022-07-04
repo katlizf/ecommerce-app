@@ -45,7 +45,8 @@ app.post('/api/addToCart', async (req, res) => {
     let {prodId, custId} = req.body
     const inCart = await sequelize.query(`
         SELECT * FROM cart_items
-        WHERE product_number = ${prodId};`)
+        WHERE product_number = ${prodId}
+        AND customer = ${custId};`)
 
     if (inCart[0].length === 0) { 
         await sequelize.query(`
@@ -90,12 +91,12 @@ app.delete('/api/emptyCart', async (req, res) => {
 app.post('/api/login', async (req, res) => {
     let {username, password} = req.body
     const userExists = await sequelize.query(`
-        SELECT * FROM customer c
+        SELECT customer_id FROM customer c
         WHERE c.username = '${username}' 
         AND c.password = '${password}';`)
     
     if(userExists[0].length === 1) {
-            res.status(200).send('Login successful!')
+            res.status(200).send(userExists[0])
     } else {
         res.status(500).send("Sorry, we don't reconginze that username or password. Please try again or regiser as a new customer.")
     }
