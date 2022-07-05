@@ -2,7 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const path = require('path')
 const app = express()
-const PORT = process.env || 4000
+const PORT = process.env.PORT
 const sequelize = require('./sequelize')
 
 app.use(express.json())
