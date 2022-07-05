@@ -26,7 +26,7 @@ function CartItemCard({data, updateSubtotal}) {
 
     const deleteProduct = cartItem => {
         let id = cartItem.id
-        axios.delete(`http://localhost:4000/api/deleteProduct/${id}`).then(res => res.data)
+        axios.delete(`https://weebs-r-us.herokuapp.com/api/deleteProduct/${id}`).then(res => res.data)
         refreshPage()
     }
 

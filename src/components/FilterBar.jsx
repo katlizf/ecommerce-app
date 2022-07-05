@@ -18,7 +18,7 @@ function FilterBar({allProducts, setallProducts, loggedInUser}) {
 
     useEffect(() => {
         axios
-            .get('http://localhost:4000/api/getTitles')
+            .get('https://weebs-r-us.herokuapp.com/api/getTitles')
             .then(res => setAllTitles(res.data))
     }, [])
 

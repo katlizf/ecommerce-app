@@ -19,7 +19,7 @@ function App() {
 
     const checkCustExists = () => {
         const body = {username, password}
-        axios.post(`http://localhost:4000/api/login`, body).then(res => {
+        axios.post(`https://weebs-r-us.herokuapp.com/api/login`, body).then(res => {
             alert('Login Successful!')
             setLoggedInUser(res.data[0].customer_id)
             document.getElementById('login/logout').textContent = 'Logout'

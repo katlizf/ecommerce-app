@@ -16,7 +16,7 @@ function CartPage() {
     }
 
     useEffect(() => {
-        axios.get(`http://localhost:4000/api/getCartProducts`).then(res => setCartItem(res.data))
+        axios.get(`https://weebs-r-us.herokuapp.com/api/getCartProducts`).then(res => setCartItem(res.data))
     }, [])
 
     useEffect(() => {

@@ -6,7 +6,7 @@ function ProductCard({product, loggedInUser}) {
 
     const addToCart = product => {
         const body = {prodId: product.product_id, type: product.type, custId: loggedInUser}
-        axios.post(`http://localhost:4000/api/addToCart`, body).then(res => alert(res.data)).catch(err => alert(err.response.data))
+        axios.post(`https://weebs-r-us.herokuapp.com/api/addToCart`, body).then(res => alert(res.data)).catch(err => alert(err.response.data))
     }
 
     return (
