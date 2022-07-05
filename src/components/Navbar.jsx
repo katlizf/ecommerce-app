@@ -1,41 +1,55 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React, {useState} from 'react'
 import Login from '../modals/Login'
-import HatIcon from '../images/hat-icon.png'
-import hamburgerIcon from '../images/hamburger.png'
-import Hamburger from './Hamburger'
+import {Link} from 'react-router-dom'
 
 
-function Navbar({checkCustExists, setUsername, setPassword, logout, loggedInUser}) {
+function Navbar({loggedInUser}) {
 
+    const [showMobileMenu, setMobileMenu] = useState(false)
+    const [showLogin, setShowLogin] = useState(false)
+
+    const toggleMobileMenu = () => {
+        setMobileMenu(!showMobileMenu)
+    }
+    const closeMobileMenu = () => {
+        setMobileMenu(false)
+    }
+    const openLogin = () => {
+        if (loggedInUser === 0) {
+            setShowLogin(true)
+        }            
+    }
 
     return (
-        <div className='flex flex-row bg-orange justify-between h-24'>
-            <div className='flex justify-start pl-6'>
-                <a href='/'>
-                    <img src={HatIcon} alt="Kisuke Urahara's Hat" className='h-20 w-20 mr-5 mt-1'/>
-                </a>
-                <h1 className='flex items-center text-3xl tracking-wider'>Weebs R Us!</h1>  
+        <div className='navigation'>
+            <div className='menu-icon' onClick={toggleMobileMenu}>
+                <i className={showMobileMenu ? 'fas fa-times' : 'fas fa-bars'} />
             </div>
-            <div className='navigation'>
-                <Link to='/'>
-                    <button className='link-btn'>Home</button>
-                </Link>
-                <Link to='/apparel'>
-                    <button className='link-btn'>Apparel</button>
-                </Link>
-                <Link to='/collectables'>
-                    <button className='link-btn-lg'>Collectables</button>
-                </Link>
-                <Link to='/cart'>
-                    <button className='link-btn'>Cart</button>
-                </Link>
-                <Login checkCustExists={checkCustExists} setUsername={setUsername} setPassword={setPassword} logout={logout} loggedInUser={loggedInUser} />
-            </div>
-            <div className='hamburger'>
-                <img src={hamburgerIcon} alt='hamburger icon'></img>
-                <Hamburger className='hamburger-menu'/>
-            </div>
+            <ul className={showMobileMenu ? 'nav-menu active' : 'nav-menu'}>
+                <li className='nav-item'>
+                    <Link to='/' className='nav-link' onClick={closeMobileMenu}>
+                        Home
+                    </Link>
+                </li>
+                <li className='nav-item'>
+                    <Link to='/apparel' className='nav-link' onClick={closeMobileMenu}>
+                        Apparel
+                    </Link>
+                </li>
+                <li className='nav-item'>
+                    <Link to='/collectables' className='nav-link-lg' onClick={closeMobileMenu}>
+                        Collectables
+                    </Link>
+                </li>
+                <li className='nav-item'>
+                    <Link to='/cart' className='nav-link' onClick={closeMobileMenu}>
+                        Cart
+                    </Link>
+                </li>
+                <li className='nav-item'>
+                    <Login openLogin={openLogin} setShowLogin={setShowLogin} showLogin={showLogin}/>
+                </li>
+            </ul>
         </div>
     )
 }

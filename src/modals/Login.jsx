@@ -1,18 +1,11 @@
-import React, {useState} from 'react'
+import React from 'react'
 import ReactModal from 'react-modal'
 import ReactDOM from 'react-dom'
 import Register from './Register'
 
 
-function Login({checkCustExists, setUsername, setPassword, logout, loggedInUser}) {
+function Login({checkCustExists, setUsername, setPassword, logout, loggedInUser, openLogin, setShowLogin, showLogin}) {
 
-    const [showLogin, setShowLogin] = useState(false)
-
-    const openLogin = () => {
-        if (loggedInUser === 0) {
-            setShowLogin(true)
-        }            
-    }
     const closeLogin = () => {
         setShowLogin(false)
     }
@@ -33,7 +26,7 @@ function Login({checkCustExists, setUsername, setPassword, logout, loggedInUser}
 
     return (
         <div>
-            <button id='login/logout' className='link-btn' onClick={e => {
+            <button id='login/logout' className='nav-link' onClick={e => {
                 openLogin()
                 logout()}}>Login</button>
             <ReactModal
