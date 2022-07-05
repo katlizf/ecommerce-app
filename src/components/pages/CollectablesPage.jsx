@@ -9,7 +9,7 @@ function CollectablesPage() {
     const [allProducts, setallProducts] = useState([])
 
     useEffect(() => {
-        axios.get(`https://weebs-r-us.herokuapp.com/getCollectables`).then(res => setallProducts(res.data))
+        axios.get(`/getCollectables`).then(res => setallProducts(res.data))
     }, [])
 
     return (

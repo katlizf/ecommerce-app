@@ -2,18 +2,12 @@ const express = require('express')
 const cors = require('cors')
 const path = require('path')
 const app = express()
-const PORT = process.env.PORT || 4000
+const PORT = process.env
 const sequelize = require('./sequelize')
-
-const publicPath = path.join(__dirname, '..', 'public')
 
 app.use(express.json())
 app.use(cors())
-app.use(express.static(publicPath))
-
-app.get('*', (req, res) => {
-    res.sendFile(path.join(publicPath, 'index.html'))
-})
+app.use(express.static(path.resolve(__dirname, '../build')))
 
 
 app.get('/getTitles', async (req, res) => {
@@ -116,6 +110,11 @@ app.post('/register', async (req, res) => {
         INSERT INTO customer (username, password, first_name, last_name)
         VALUES ('${username}', '${password}', '${firstName}', '${lastName}');`)
         res.status(200)
+})
+
+
+app.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname, '../build', 'index.html'))
 })
 
 

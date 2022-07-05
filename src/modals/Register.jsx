@@ -41,7 +41,7 @@ function Register({closeLogin}) {
 
     const registerHandler = () => {
         const body = {firstName, lastName, username, password}
-        axios.post('https://weebs-r-us.herokuapp.com/register', body).then(res => alert(res.data))
+        axios.post('/register', body).then(res => alert(res.data))
         closeRegister()
         alert("Thanks for registering as a new customer! You'll now be able to login to your account.")
     }
