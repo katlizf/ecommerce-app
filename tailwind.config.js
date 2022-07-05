@@ -17,7 +17,5 @@ module.exports = {
         'light-grey': '#DEDEDE'
     }
   },
-  plugins: [
-    require('tailwindcss-text-fill-stroke')()
-  ],
+  plugins: [],
 }
