@@ -15,13 +15,13 @@ app.get('*', (req, res) => {
 })
 
 
-app.get('/api/getTitles', async (req, res) => {
+app.get('/getTitles', async (req, res) => {
     let allTitles = await sequelize.query(`
         SELECT * FROM anime;`)
         res.status(200).send(allTitles[0])
 })
 
-app.get('/api/getApparel', async (req, res) => {
+app.get('/getApparel', async (req, res) => {
     let allApparel = await sequelize.query(`
     SELECT p.product_id, p.product_name, p.description, p.price, p.image, p.anime, a.name FROM products p
         JOIN anime a
@@ -30,7 +30,7 @@ app.get('/api/getApparel', async (req, res) => {
         res.status(200).send(allApparel[0])
 })
 
-app.get('/api/getCollectables', async (req, res) => {
+app.get('/getCollectables', async (req, res) => {
     let allCollectables = await sequelize.query(`
         SELECT p.product_id, p.product_name, p.description, p.price, p.image, p.anime, a.name FROM products p
         JOIN anime a
@@ -39,7 +39,7 @@ app.get('/api/getCollectables', async (req, res) => {
         res.status(200).send(allCollectables[0])
 })
 
-app.get('/api/getPrice', async (req, res) => {
+app.get('/getPrice', async (req, res) => {
     let price = await sequelize.query(`
         SELECT p.price FROM cart_items c
         JOIN products p
@@ -48,7 +48,7 @@ app.get('/api/getPrice', async (req, res) => {
         res.status(200).send(price[0])
 })
 
-app.post('/api/addToCart', async (req, res) => {
+app.post('/addToCart', async (req, res) => {
     let {prodId, custId} = req.body
     const inCart = await sequelize.query(`
         SELECT * FROM cart_items
@@ -65,7 +65,7 @@ app.post('/api/addToCart', async (req, res) => {
     }
 })
 
-app.get('/api/getCartProducts', async (req, res) => {
+app.get('/getCartProducts', async (req, res) => {
     let cartProducts = await sequelize.query(`
         SELECT c.cart_item_id, c.customer, c.product_number, p.product_name, p.price, p.image FROM cart_items c
         JOIN products p
@@ -73,7 +73,7 @@ app.get('/api/getCartProducts', async (req, res) => {
         res.status(200).send(cartProducts[0])
 })
 
-app.delete('/api/deleteProduct/:id', async (req, res) => {
+app.delete('/deleteProduct/:id', async (req, res) => {
     let {id} = req.params
     await sequelize.query(`
         DELETE FROM cart_items
@@ -81,7 +81,7 @@ app.delete('/api/deleteProduct/:id', async (req, res) => {
         res.status(200)
 })
 
-app.post('/api/createShipment', async (req, res) => {
+app.post('/createShipment', async (req, res) => {
     let {address, city, state, zipCode, phone, firstName, lastName, email} = req.body
     await sequelize.query(`
         INSERT INTO shipments (address, city, state, zip_code, first_name, last_name, email, phone_number)
@@ -89,13 +89,13 @@ app.post('/api/createShipment', async (req, res) => {
         res.status(200)
 })
 
-app.delete('/api/emptyCart', async (req, res) => {
+app.delete('/emptyCart', async (req, res) => {
     await sequelize.query(`
         DELETE FROM cart_items;`)
         res.status(200)
 })
 
-app.post('/api/login', async (req, res) => {
+app.post('/login', async (req, res) => {
     let {username, password} = req.body
     const userExists = await sequelize.query(`
         SELECT customer_id FROM customer c
@@ -109,7 +109,7 @@ app.post('/api/login', async (req, res) => {
     }
 })
 
-app.post('/api/register', async (req, res) => {
+app.post('/register', async (req, res) => {
     let {username, password, firstName, lastName} = req.body
     await sequelize.query(`
         INSERT INTO customer (username, password, first_name, last_name)

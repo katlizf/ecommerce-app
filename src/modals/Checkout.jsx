@@ -63,8 +63,8 @@ function Checkout({subtotal}) {
 
     const checkoutHandler = () => {
         const body = {address, city, state, zipCode, phone, firstName, lastName, email}
-        axios.post('http://localhost:4000/api/createShipment', body).then(res => res.data)
-        axios.delete('http://localhost:4000/api/emptyCart').then(res => res.data)
+        axios.post('https://weebs-r-us.herokuapp.com/createShipment', body).then(res => res.data)
+        axios.delete('https://weebs-r-us.herokuapp.com/emptyCart').then(res => res.data)
         closeCheckout()
         refreshPage()
         alert("Thanks for Shopping Today! You're order will ship out soon!")

@@ -9,7 +9,7 @@ function ApparelPage({loggedInUser}) {
     const [allProducts, setallProducts] = useState([])
 
     useEffect(() => {
-        axios.get(`https://weebs-r-us.herokuapp.com/api/getApparel`).then(res => setallProducts(res.data))
+        axios.get(`https://weebs-r-us.herokuapp.com/getApparel`).then(res => setallProducts(res.data))
     }, [])
 
     return (
