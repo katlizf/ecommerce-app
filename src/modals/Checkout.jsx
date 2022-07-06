@@ -96,7 +96,7 @@ function Checkout({subtotal}) {
                     <div>
                         <div className='flex flex-row space-x-3'>
                             <div className='flex flex-col'>
-                                <label>First name:</label>
+                                <label className='checkout-label w-40'>First name:</label>
                                 <input
                                     className='checkout-input'
                                     name='fname'
@@ -153,7 +153,6 @@ function Checkout({subtotal}) {
                                 name='phone'
                                 type='text'
                                 onChange={shipmentDetails}></input>
-
                             <label className='checkout-label'>Email:</label>
                             <input
                                 className='checkout-input-lg'
@@ -161,6 +160,50 @@ function Checkout({subtotal}) {
                                 type='email'
                                 onChange={shipmentDetails}></input>
                         </div>
+                        <div className='flex flex-col'>
+                            <label className='checkout-label'>Name on Card:</label>
+                            <input
+                                className='checkout-input-lg'
+                                name='cc-name'
+                                type='text'
+                                onChange={shipmentDetails}></input>
+                            <label className='checkout-label'>Card number:</label>
+                            <input
+                                className='checkout-input-lg'
+                                name='cc-number'
+                                type='text'
+                                onChange={shipmentDetails}></input>
+                            <label className='checkout-label'>Card type:</label>
+                            <form action='' method='post' className='space-x-4'>
+                                <input type='radio' name='cc-type' value='Visa' />Visa
+                                <input type='radio' name='cc-type' value='Mastercard' />Mastercard
+                                <input type='radio' name='cc-type' value='Discover' />Discover
+                                <input type='radio' name='cc-type' value='American Express' />American Express
+                            </form>
+                        </div>
+                        <div className='flex flex-col'>
+                            <div className='flex flex-row space-x-3'>
+                                <div className='flex flex-col'>
+                                    <label className='checkout-label w-40'>Expiration:</label>
+                                    <input
+                                        className='checkout-input'
+                                        name='expiration'
+                                        type='text'
+                                        placeholder='mm/yyy'
+                                        onChange={shipmentDetails}></input>
+                                </div>
+                                <div className='flex flex-col w-40'>
+                                    <label className='checkout-label'>SSN:</label>
+                                    <input
+                                        className='checkout-input'
+                                        name='ssn'
+                                        type='text'
+                                        onChange={shipmentDetails}></input>
+                                </div>
+
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 <br />
