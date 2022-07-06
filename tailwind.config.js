@@ -5,6 +5,11 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    screens: {
+        'sm': {'max': '640px'},
+        'md': {'max': '768px'},
+        'lg': {'max': '1024px'}
+    },
     fontFamily: {
         'custom': ['Kdam Thmor Pro', 'sans-serif']
     },
