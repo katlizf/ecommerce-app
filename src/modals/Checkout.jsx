@@ -67,7 +67,7 @@ function Checkout({subtotal}) {
         axios.delete('/emptyCart').then(res => res.data)
         closeCheckout()
         refreshPage()
-        alert("Thanks for Shopping Today! You're order will ship out soon!")
+        alert("Order submitted! You're order will ship out soon. Thanks for shopping with us today!")
     }
 
     return (
