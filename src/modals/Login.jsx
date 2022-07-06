@@ -25,7 +25,7 @@ function Login({checkCustExists, setUsername, setPassword, logout, loggedInUser,
 
 
     return (
-        <div>
+        <div class='nav-link'>
             <button id='login/logout' className='nav-link' onClick={e => {
                 openLogin()
                 logout()}}>Login</button>

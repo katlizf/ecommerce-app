@@ -46,8 +46,8 @@ function Navbar({loggedInUser}) {
                         Cart
                     </Link>
                 </li>
-                <li className='nav-item'>
-                    <Login openLogin={openLogin} setShowLogin={setShowLogin} showLogin={showLogin}/>
+                <li className='nav-item' onClick={closeMobileMenu}>
+                    <Login openLogin={openLogin} setShowLogin={setShowLogin} showLogin={showLogin} />
                 </li>
             </ul>
         </div>
