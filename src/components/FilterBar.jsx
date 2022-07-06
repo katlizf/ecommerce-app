@@ -28,7 +28,7 @@ function FilterBar({allProducts, setallProducts, loggedInUser}) {
 
     return (
         <div>
-            <div className='flex justify-end pr-28 pt-8'>
+            <div className='flex justify-end pr-28 pt-8 md:pr-10 sm:pr-4 sm:pt-5'>
                 {/* <h2>Search: <input className='border-b-2'></input></h2> */}
                 <select
                     className='border-2'

@@ -40,9 +40,9 @@ function App() {
             <div className='flex flex-row bg-orange justify-between h-24'>
                 <div className='flex justify-start pl-6'>
                     <a href='/'>
-                        <img src={HatIcon} alt="Kisuke Urahara's Hat" className='h-20 w-20 mr-5 mt-1' />
+                        <img src={HatIcon} alt="Kisuke Urahara's Hat" className='h-20 w-20 mr-5 mt-1 sm:w-16 sm:h-16 sm:mt-2' />
                     </a>
-                    <h1 className='flex items-center text-3xl tracking-wider'>Weebs R Us!</h1>
+                    <h1 className='flex items-center text-3xl tracking-wider sm:text-2xl'>Weebs R Us!</h1>
                 </div>
                 <Navbar checkCustExists={checkCustExists} setUsername={setUsername} setPassword={setPassword} logout={logout} loggedInUser={loggedInUser} />
             </div>

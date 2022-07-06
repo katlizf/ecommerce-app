@@ -106,14 +106,6 @@
         align-items: center;
         font-size: 1.2rem;
       }
-    /* .navbar-logo {
-        color: #fff;
-        justify-self: start;
-        margin-left: 20px;
-        cursor: pointer;
-        text-decoration: none;
-        font-size: 2rem;
-    } */
     .fa-firstdraft {
         margin-left: 0.5rem;
         font-size: 1.6rem;
@@ -134,39 +126,31 @@
         height: 80px;
     }
     .nav-link {
-        color: white;
+        color: black;
         text-decoration: none;
         padding: 0.5rem 1rem;
         width: 7rem;
         
     }
     .nav-link:hover{
-        color: black;
+        color: white;
         border-radius: 4px;
         transition: all 0.2s ease-out;
     }
     .nav-link-lg {
-        color: white;
+        color: black;
         text-decoration: none;
-        /* width: max-content; */
         padding: 0.5rem 1rem;
         width: 7rem;
-        /* padding-right: 1.25rem;
-        padding-left: 1.75rem;
-        border-right: 1px;
-        border-left: 1px; */
     }
     .nav-link-lg:hover {
-        color: black;
+        color: white;
         border-radius: 4px;
         transition: all 0.2s ease-out;
     }
     .fa-bars {
         color: #fff;
     }
-    /* .nav-link-mobile {
-        display: none;
-    } */
     .menu-icon {
         display: none;
     }
@@ -193,9 +177,6 @@
         cursor: pointer;
         font-size: .875rem;
     }
-    /* .NavbarItems {
-        position: relative;
-    } */
     .nav-menu {
         display: flex;
         flex-direction: column;
@@ -227,10 +208,6 @@
         width: 100%;
         display: table;
     }
-    /* .nav-link:hover {
-        background-color: #1888ff;
-        border-radius: 0;
-    } */
     .navbar-logo {
         position: absolute;
         top: 0;
@@ -250,23 +227,6 @@
         color: #fff;
         font-size: 2rem;
     }
-    /* .nav-link-mobile {
-        display: block;
-        text-align: center;
-        padding: 1.5rem;
-        margin: 2rem auto;
-        border-radius: 4px;
-        width: 80%;
-        background: #1888ff;
-        text-decoration: none;
-        color: #fff;
-        font-size: 1.5rem;
-    }
-    .nav-link-mobile:hover {
-        background: #fff;
-        color: #1888ff;
-        transition: 250ms;
-    } */
 }
 
 @media (max-width: 768px) {
