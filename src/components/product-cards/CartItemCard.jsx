@@ -25,7 +25,7 @@ function CartItemCard({data, updateSubtotal}) {
     }
 
     const deleteProduct = cartItem => {
-        let id = cartItem.id
+        let id = data.id
         axios.delete(`/deleteProduct/${id}`).then(res => res.data)
         refreshPage()
     }
