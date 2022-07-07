@@ -52,17 +52,7 @@ function Register({closeLogin}) {
             <ReactModal
                 isOpen={showRegister}
                 ariaHideApp={false}
-                style={{
-                    content: {
-                        position: 'absolute',
-                        top: '10%',
-                        left: '37%',
-                        bottom: '10%',
-                        width: '26%',
-                        height: '70%',
-                        border: '2px solid #ccc'
-                    }
-                }}>
+                className='register-modal'>
                 <div className='flex flex-col'>
                     <p className='modal-title'>Register for a New Account</p>
                     <br />
