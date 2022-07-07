@@ -1,17 +1,27 @@
-# Capstone Project Concept
+# Weebs-R-Us!
 
-An anime e-commerce app where users can create an account, browse items, and purchase items.
+An anime e-commerce web application where users can create an account to login/logout, browse items and add to cart, and purchase items.
 
-# MVP
+# Technologies Used
 
-* User registration/login
-* Can view page of items (posters, figurines, props, etc.)
-* Can view page of apparel
-* Can add items to cart
-* Can purchase items using Stripe
+* JavaScript
+* React
+* Redux
+* TailwindCSS
+* PostgreSQL
+* Axios
+* Express
 
-# Database
+# Hosted Site
 
-* Item and apparl info
-* User info
-* Cart info
+[Weebs-R-Us!](https://weebs-r-us.herokuapp.com/)
+
+# How to set up this project
+
+* Clone this repository to your machine
+
+* Open project in command prompt or preferred terminal
+
+* Once the project is open, run `npm install` to install dependencies
+
+* Once installed, run `npm start`
