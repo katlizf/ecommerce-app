@@ -3,7 +3,7 @@ import Login from '../modals/Login'
 import {Link} from 'react-router-dom'
 
 
-function Navbar({loggedInUser}) {
+function Navbar({loggedInUser, checkCustExists, setPassword, setUsername, logout}) {
 
     const [showMobileMenu, setMobileMenu] = useState(false)
     const [showLogin, setShowLogin] = useState(false)
@@ -47,7 +47,7 @@ function Navbar({loggedInUser}) {
                     </Link>
                 </li>
                 <li className='nav-item' onClick={closeMobileMenu}>
-                    <Login openLogin={openLogin} setShowLogin={setShowLogin} showLogin={showLogin} />
+                    <Login openLogin={openLogin} setShowLogin={setShowLogin} showLogin={showLogin} checkCustExists={checkCustExists} setPassword={setPassword} logout={logout} setUsername={setUsername} />
                 </li>
             </ul>
         </div>
