@@ -77,10 +77,10 @@ app.delete('/deleteProduct/:id', async (req, res) => {
 })
 
 app.post('/createShipment', async (req, res) => {
-    let {address, city, state, zipCode, phone, firstName, lastName, email} = req.body
+    let {address, city, state, zipCode, phone, firstName, lastName, email, cardName, cardNumber, expiration, ssn} = req.body
     await sequelize.query(`
-        INSERT INTO shipments (address, city, state, zip_code, first_name, last_name, email, phone_number)
-        VALUES ('${address}', '${city}', '${state}', ${zipCode}, '${firstName}', '${lastName}', '${email}', '${phone}');`)
+        INSERT INTO shipments (address, city, state, zip_code, first_name, last_name, email, phone_number, name_on_card, card_number, expiration, ssn)
+        VALUES ('${address}', '${city}', '${state}', ${zipCode}, '${firstName}', '${lastName}', '${email}', '${phone}', '${cardName}', '${cardNumber}', '${expiration}', ${ssn});`)
         res.status(200)
 })
 

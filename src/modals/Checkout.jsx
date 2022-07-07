@@ -15,6 +15,12 @@ function Checkout({subtotal}) {
     const [zipCode, setZipCode] = useState('')
     const [phone, setPhone] = useState('')
     const [email, setEmail] = useState('')
+    const [cardName, setCardName] = useState('')
+    const [cardNumber, setCardNumber] = useState('')
+    const [cardType, setCardType] = useState('')
+    // need to track and log cardType
+    const [expiration, setExpiration] = useState('')
+    const [ssn, setSSN] = useState('')
 
     let shipping = 0.00
     let total = subtotal + shipping
@@ -56,13 +62,25 @@ function Checkout({subtotal}) {
             case 'email':
                 setEmail(e.target.value)
                 break
+            case 'cc-name':
+                setCardName(e.target.value)
+                break;
+            case 'cc-number':
+                setCardNumber(e.target.value)
+                break;
+            case 'expiration':
+                setExpiration(e.target.value)
+                break;
+            case 'ssn':
+                setSSN(e.target.value)
+                break;
             default:
                 e.preventDefault()
         }
     }
 
     const checkoutHandler = () => {
-        const body = {address, city, state, zipCode, phone, firstName, lastName, email}
+        const body = {address, city, state, zipCode, phone, firstName, lastName, email, cardName, cardNumber, expiration, ssn}
         axios.post('/createShipment', body).then(res => res.data)
         axios.delete('/emptyCart').then(res => res.data)
         closeCheckout()
