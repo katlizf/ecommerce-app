@@ -78,23 +78,14 @@ function Checkout({subtotal}) {
             <ReactModal
                 isOpen={showCheckout}
                 ariaHideApp={false}
-                style={{
-                    content: {
-                        position: 'absolute',
-                        top: '7%',
-                        left: '30%',
-                        bottom: '5%',
-                        width: '40%',
-                        height: '86%',
-                    }
-                }}>
+                className='checkout-modal'>
                 <h1 className='modal-title'>You're Almost There!</h1>
                 <br />
                 <h2 className='text-xl'>Please give us your shipment details below</h2>
                 <br />
                 <div className='flex flex-col ml-6'>
                     <div>
-                        <div className='flex flex-row space-x-3'>
+                        <div className='flex flex-row space-x-3 sm:flex-col sm:space-x-0'>
                             <div className='flex flex-col'>
                                 <label className='checkout-label w-40'>First name:</label>
                                 <input
@@ -120,7 +111,7 @@ function Checkout({subtotal}) {
                                 type='text'
                                 onChange={shipmentDetails}></input>
                         </div>
-                        <div className='flex flex-row space-x-3'>
+                        <div className='flex flex-row space-x-3 sm:flex-col sm:space-x-0'>
                             <div className='flex flex-col w-40'>
                                 <label className='checkout-label'>City:</label>
                                 <input
@@ -137,8 +128,8 @@ function Checkout({subtotal}) {
                                     type='text'
                                     onChange={shipmentDetails}></input>
                             </div>
-                            <div>
-                                <label className='checkout-label w-40'>Zip code:</label>
+                            <div className='flex flex-col w-40'>
+                                <label className='checkout-label'>Zip code:</label>
                                 <input
                                     className='checkout-input'
                                     name='zcode'
@@ -174,15 +165,19 @@ function Checkout({subtotal}) {
                                 type='text'
                                 onChange={shipmentDetails}></input>
                             <label className='checkout-label'>Card type:</label>
-                            <form action='' method='post' className='space-x-4'>
-                                <input type='radio' name='cc-type' value='Visa' />Visa
-                                <input type='radio' name='cc-type' value='Mastercard' />Mastercard
-                                <input type='radio' name='cc-type' value='Discover' />Discover
-                                <input type='radio' name='cc-type' value='American Express' />American Express
+                            <form action='' method='post' className='space-x-4 sm:space-x-0 sm:flex sm:flex-col'>
+                                <label>Visa
+                                    <input type='radio' name='cc-type' value='Visa' /></label>
+                                <label>Mastercard
+                                    <input type='radio' name='cc-type' value='Mastercard' /></label>
+                                <label>Discover
+                                    <input type='radio' name='cc-type' value='Discover' /></label>
+                                <label>American Express
+                                    <input type='radio' name='cc-type' value='American Express' /></label>
                             </form>
                         </div>
                         <div className='flex flex-col'>
-                            <div className='flex flex-row space-x-3'>
+                            <div className='flex flex-row space-x-3 sm:flex-col sm:space-x-0'>
                                 <div className='flex flex-col'>
                                     <label className='checkout-label w-40'>Expiration:</label>
                                     <input
@@ -209,7 +204,7 @@ function Checkout({subtotal}) {
                 <br />
                 <div>
                     <span className='flex flex-row justify-end'>
-                        <p className='w-24 mr-9'>Subtotal:</p>
+                        <p className='w-24 mr-9 lg:mr-8 md:mr-7 sm:mr-6'>Subtotal:</p>
                         <p>{subtotal}</p>
                         <br />
                     </span>
@@ -220,7 +215,7 @@ function Checkout({subtotal}) {
                         <br />
                     </span>
                     <span className='flex flex-row justify-end'>
-                        <p className='w-24 mr-9'>Total:</p>
+                        <p className='w-24 mr-2 lg:mr-3 md:mr-2 sm:mr-1'>Total:</p>
                         <p>{total}</p>
                         <br />
                     </span>

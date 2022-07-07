@@ -81,6 +81,21 @@
         border-style: solid;
         border-radius: 4px;
     }
+    .checkout-modal {
+        position: absolute;
+        margin-top: 3%;
+        margin-left: 30%;
+        margin-bottom: 5%;
+        width: 40%;
+        height: 86%;
+        overflow-y: scroll;
+        background: white;
+        padding: 2rem;
+        border-width: 1.5px;
+        border-color: #CCCCCC;
+        border-style: solid;
+        border-radius: 4px;
+    }
     .modal-title {
         font-size: 1.5rem;
         color: orange;
@@ -289,6 +304,21 @@
         border-style: solid;
         border-radius: 4px;
     }
+    .checkout-modal {
+        position: absolute;
+        margin-top: 6%;
+        margin-left: 15%;
+        margin-bottom: 5%;
+        width: 70%;
+        height: 86%;
+        overflow-y: scroll;
+        background: white;
+        padding: 2rem;
+        border-width: 1.5px;
+        border-color: #CCCCCC;
+        border-style: solid;
+        border-radius: 4px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -341,6 +371,21 @@
     .login-input {
         width: 12rem;
         border-width: 2px;
+    }
+    .checkout-modal {
+        position: absolute;
+        margin-top: 6%;
+        margin-left: 5%;
+        margin-bottom: 5%;
+        width: 90%;
+        height: 86%;
+        overflow-y: scroll;
+        background: white;
+        padding: 2rem;
+        border-width: 1.5px;
+        border-color: #CCCCCC;
+        border-style: solid;
+        border-radius: 4px;
     }
 }
 
@@ -414,6 +459,26 @@
         flex-direction: row;
         justify-content: space-around;
         margin-top: 0.5rem;
+    }
+    .checkout-modal {
+        position: absolute;
+        margin-top: 6%;
+        margin-left: 5%;
+        margin-bottom: 5%;
+        width: 90%;
+        height: 86%;
+        overflow-y: scroll;
+        background: white;
+        padding: 2rem;
+        border-width: 1.5px;
+        border-color: #CCCCCC;
+        border-style: solid;
+        border-radius: 4px;
+    }
+    .checkout-input-lg {
+        border-width: 2px;
+        margin-bottom: 0.25px;
+        width: 14rem;
     }
 }
 
