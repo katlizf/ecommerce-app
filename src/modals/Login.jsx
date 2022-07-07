@@ -32,16 +32,7 @@ function Login({checkCustExists, setUsername, setPassword, logout, loggedInUser,
             <ReactModal
                 isOpen={showLogin}
                 ariaHideApp={false}
-                style={{
-                    content: {
-                        position: 'absolute',
-                        top: '10%',
-                        left: '37%',
-                        bottom: '10',
-                        width: '26%',
-                        height: '60%'
-                    }
-                }}>
+                className='login-modal'>
                 <div className='flex-col'>
                     <p className='modal-title'>Login</p>
                     <br />
