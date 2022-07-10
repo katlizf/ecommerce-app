@@ -2,12 +2,13 @@ const express = require('express')
 const cors = require('cors')
 const path = require('path')
 const app = express()
-const PORT = process.env.PORT
+// const PORT = process.env.PORT 
+const PORT = 4000
 const sequelize = require('./sequelize')
 
 app.use(express.json())
 app.use(cors())
-app.use(express.static(path.resolve(__dirname, '../build')))
+// app.use(express.static(path.resolve(__dirname, '../build')))
 
 
 app.get('/getTitles', async (req, res) => {
@@ -48,31 +49,34 @@ app.post('/addToCart', async (req, res) => {
     const inCart = await sequelize.query(`
         SELECT * FROM cart_items
         WHERE product_number = ${prodId}
-        AND customer = ${custId};`)
+        AND cart_items.customer = ${custId};`)
 
     if (inCart[0].length === 0) { 
         await sequelize.query(`
             INSERT INTO cart_items (customer, product_number)
-            VALUES (${custId},${prodId});`)
+            VALUES (${custId}, ${prodId});`)
             res.status(200).send('Successfully added to cart!')
     } else {
         res.status(500).send('This product is already in your cart.')
     }
 })
 
-app.get('/getCartProducts', async (req, res) => {
+app.get('/getCartProducts/:custId', async (req, res) => {
+    let {custId} = req.params
     let cartProducts = await sequelize.query(`
         SELECT c.cart_item_id, c.customer, c.product_number, p.product_name, p.price, p.image FROM cart_items c
         JOIN products p
-        ON c.product_number = p.product_id;`)
+        ON c.product_number = p.product_id
+        WHERE c.customer = ${custId};`)
         res.status(200).send(cartProducts[0])
 })
 
-app.delete('/deleteProduct/:id', async (req, res) => {
-    let {id} = req.params
+app.delete('/deleteProduct/:custId/:id', async (req, res) => {
+    let {custId, id} = req.params
     await sequelize.query(`
         DELETE FROM cart_items
-        WHERE cart_items.cart_item_id = ${id}`)
+        WHERE cart_items.customer = ${custId}
+        AND cart_item_id = ${id};`)
         res.status(200)
 })
 
@@ -113,9 +117,9 @@ app.post('/register', async (req, res) => {
 })
 
 
-app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname, '../build', 'index.html'))
-})
+// app.get('/*', function (req, res) {
+//     res.sendFile(path.join(__dirname, '../build', 'index.html'))
+// })
 
 
 app.listen(PORT, () => console.log(`Server up on port ${PORT}`))
