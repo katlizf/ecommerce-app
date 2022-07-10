@@ -223,7 +223,7 @@ function Checkout({subtotal}) {
                 <div>
                     <span className='flex flex-row justify-end'>
                         <p className='w-24 mr-9 lg:mr-8 md:mr-7 sm:mr-6'>Subtotal:</p>
-                        <p>{subtotal}</p>
+                        <p>{subtotal.toFixed(2)}</p>
                         <br />
                     </span>
                     <span className='flex flex-row justify-end'>
@@ -234,7 +234,7 @@ function Checkout({subtotal}) {
                     </span>
                     <span className='flex flex-row justify-end'>
                         <p className='w-24 mr-2 lg:mr-3 md:mr-2 sm:mr-1'>Total:</p>
-                        <p>{total}</p>
+                        <p>{total.toFixed(2)}</p>
                         <br />
                     </span>
                 </div>
