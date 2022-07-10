@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 import Register from './Register'
 
 
-function Login({checkCustExists, setUsername, setPassword, logout, loggedInUser, openLogin, setShowLogin, showLogin}) {
+function Login({checkCustExists, setUsername, setPassword, logout, openLogin, setShowLogin, showLogin}) {
 
     const closeLogin = () => {
         setShowLogin(false)
@@ -25,7 +25,7 @@ function Login({checkCustExists, setUsername, setPassword, logout, loggedInUser,
 
 
     return (
-        <div class='nav-link'>
+        <div className='nav-link'>
             <button id='login/logout' className='nav-link' onClick={e => {
                 openLogin()
                 logout()}}>Login</button>

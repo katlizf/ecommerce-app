@@ -1,6 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit'
 
-// Note: not sure how to set price initialState as product price
+// Note: need to set price initialState as product price
 
 const cartSlice = createSlice({
     name: 'cart',

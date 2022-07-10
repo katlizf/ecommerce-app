@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {increase, decrease} from '../../store/cart-reducer'
 
 
-function CartItemCard({data, updateSubtotal}) {
+function CartItemCard({data, updateSubtotal, loggedInUser}) {
 
     const [quantity, setQuantity] = useState(1)
 
@@ -18,15 +18,16 @@ function CartItemCard({data, updateSubtotal}) {
     // const decreaseHandler = () => {
     //     dispatch(decrease({data}))
     // }
-    // NOTE: not sure how to set product price as initialState in reducer; using increaseHandler and decreaseHandler below instead
+    // NOTE: need to set product price as initialState in reducer; using increaseHandler and decreaseHandler below instead
 
     const refreshPage = () => {
         window.location.reload()
     }
 
-    const deleteProduct = cartItem => {
-        let id = data.id
-        axios.delete(`/deleteProduct/${id}`).then(res => res.data)
+    const deleteProduct = (cartItem) => {
+        let id = cartItem.cart_item_id
+        let custId = loggedInUser
+        axios.delete(`/deleteProduct/${custId}/${id}`).then(res => res.data)
         refreshPage()
     }
 

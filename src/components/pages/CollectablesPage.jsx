@@ -4,7 +4,7 @@ import FilterBar from '../FilterBar'
 import AllYouNeed from '../banners/AllYouNeed'
 
 
-function CollectablesPage() {
+function CollectablesPage({loggedInUser}) {
 
     const [allProducts, setallProducts] = useState([])
 
@@ -15,7 +15,7 @@ function CollectablesPage() {
     return (
         <div>
             <AllYouNeed />
-            <FilterBar allProducts={allProducts} setallProducts={setallProducts}/>
+            <FilterBar allProducts={allProducts} setallProducts={setallProducts} loggedInUser={loggedInUser}/>
         </div>
     )
 }

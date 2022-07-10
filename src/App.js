@@ -42,15 +42,15 @@ function App() {
                     <a href='/'>
                         <img src={HatIcon} alt="Kisuke Urahara's Hat" className='h-20 w-20 mr-5 mt-1 sm:w-16 sm:h-16 sm:mt-2' />
                     </a>
-                    <h1 className='flex items-center text-3xl tracking-wider sm:text-2xl'>Weebs R Us!</h1>
+                    <h1 className='flex items-center text-3xl tracking-wider sm:text-2xl'>Weebs-R-Us!</h1>
                 </div>
                 <Navbar checkCustExists={checkCustExists} setUsername={setUsername} setPassword={setPassword} logout={logout} loggedInUser={loggedInUser} />
             </div>
             <Routes>
                 <Route path='/' element={<HomePage />} />
                 <Route path='/apparel' element={<ApparelPage loggedInUser={loggedInUser} />} />
-                <Route path='/collectables' element={<CollectablesPage />} />
-                <Route path='/cart' element={<CartPage />} />
+                <Route path='/collectables' element={<CollectablesPage loggedInUser={loggedInUser}/>} />
+                <Route path='/cart' element={<CartPage loggedInUser={loggedInUser} />} />
                 <Route path='/login' element={<Login checkCustExists={checkCustExists} setUsername={setUsername} setPassword={setPassword} logout={logout} loggedInUser={loggedInUser}/>} />
             </Routes>
             <Footer />

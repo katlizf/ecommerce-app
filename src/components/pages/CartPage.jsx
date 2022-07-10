@@ -5,7 +5,7 @@ import CartItemCard from '../product-cards/CartItemCard'
 import Checkout from '../../modals/Checkout'
 
 
-function CartPage() {
+function CartPage({loggedInUser}) {
 
     const [cartItem, setCartItem] = useState([])
     const [subtotal, setSubtotal] = useState(0)
@@ -16,7 +16,8 @@ function CartPage() {
     }
 
     useEffect(() => {
-        axios.get(`/getCartProducts`).then(res => setCartItem(res.data))
+        let custId = loggedInUser
+        axios.get(`/getCartProducts/${custId}`).then(res => setCartItem(res.data))
     }, [])
 
     useEffect(() => {
@@ -31,7 +32,7 @@ function CartPage() {
             <div className='flex flex-col'>
                 <h1 className='mt-20 mb-10 text-3xl sm:text-2xl'>Shopping Cart</h1>
                 <div className='flex flex-col justify-center items-center'>
-                    {cartItem.map(data => <CartItemCard key={data.id} data={data} updateSubtotal={updateSubtotal} />)}
+                    {cartItem.map(data => <CartItemCard key={data.id} data={data} updateSubtotal={updateSubtotal} loggedInUser={loggedInUser} />)}
                 </div>
                 <div className='flex justify-end pt-5 pb-5'>
                     <div className='flex flex-row'>
