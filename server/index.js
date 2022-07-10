@@ -2,13 +2,13 @@ const express = require('express')
 const cors = require('cors')
 const path = require('path')
 const app = express()
-// const PORT = process.env.PORT 
-const PORT = 4000
+const PORT = process.env.PORT 
+// const PORT = 4000
 const sequelize = require('./sequelize')
 
 app.use(express.json())
 app.use(cors())
-// app.use(express.static(path.resolve(__dirname, '../build')))
+app.use(express.static(path.resolve(__dirname, '../build')))
 
 
 app.get('/getTitles', async (req, res) => {
@@ -117,9 +117,9 @@ app.post('/register', async (req, res) => {
 })
 
 
-// app.get('/*', function (req, res) {
-//     res.sendFile(path.join(__dirname, '../build', 'index.html'))
-// })
+app.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname, '../build', 'index.html'))
+})
 
 
 app.listen(PORT, () => console.log(`Server up on port ${PORT}`))
