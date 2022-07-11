@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import ReactModal from 'react-modal'
 import ReactDOM from 'react-dom'
 import axios from 'axios'
+import swal from 'sweetalert'
 
 
 function Checkout({subtotal, loggedInUser}) {
@@ -21,7 +22,6 @@ function Checkout({subtotal, loggedInUser}) {
     const [expiration, setExpiration] = useState('')
     const [ssn, setSSN] = useState('')
 
-console.log(cardType)
 
     let shipping = 0.00
     let total = subtotal + shipping
@@ -89,7 +89,7 @@ console.log(cardType)
         axios.delete('/emptyCart').then(res => res.data)
         closeCheckout()
         refreshPage()
-        alert("Order submitted! You're order will ship out soon. Thanks for shopping with us today!")
+        swal("Order submitted! You're order will ship out soon. Thanks for shopping with us today!")
     }
 
     return (

@@ -11,6 +11,7 @@ An anime e-commerce web application where users can create an account to login/l
 * PostgreSQL
 * Axios
 * Express
+* SweetAlert
 
 # Hosted Site
 

@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import axios from 'axios'
 import {useDispatch, useSelector} from 'react-redux'
 import {increase, decrease} from '../../store/cart-reducer'
+import swal from 'sweetalert'
 
 
 function CartItemCard({data, updateSubtotal, loggedInUser}) {
@@ -29,6 +30,7 @@ function CartItemCard({data, updateSubtotal, loggedInUser}) {
         let custId = loggedInUser
         axios.delete(`/deleteProduct/${custId}/${id}`).then(res => res.data)
         refreshPage()
+        // swal('Removed', {buttons:false, timer:3000})
     }
 
     let totalProdPrice = data.price * +quantity

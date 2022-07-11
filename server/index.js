@@ -57,7 +57,7 @@ app.post('/addToCart', async (req, res) => {
             VALUES (${custId}, ${prodId});`)
             res.status(200).send('Successfully added to cart!')
     } else {
-        res.status(500).send('This product is already in your cart.')
+        res.status(500).send('Oops! This product is already in your cart.')
     }
 })
 

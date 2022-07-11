@@ -1,12 +1,13 @@
 import React from 'react'
 import axios from 'axios'
+import swal from 'sweetalert'
 
 
 function ProductCard({product, loggedInUser}) {
 
     const addToCart = product => {
         const body = {prodId: product.product_id, type: product.type, custId: loggedInUser}
-        axios.post(`/addToCart`, body).then(res => alert(res.data)).catch(err => alert(err.response.data))
+        axios.post(`/addToCart`, body).then(res => swal(res.data, {buttons:false, timer:1000})).catch(err => swal(err.response.data, {buttons:false, timer:1000}))
     }
 
     return (

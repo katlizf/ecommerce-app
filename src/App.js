@@ -1,5 +1,6 @@
 import React, {useState} from "react"
 import {Route, Routes} from 'react-router-dom'
+import swal from "sweetalert"
 import axios from 'axios'
 import HomePage from './components/pages/HomePage'
 import ApparelPage from './components/pages/ApparelPage'
@@ -20,11 +21,11 @@ function App() {
     const checkCustExists = () => {
         const body = {username, password}
         axios.post(`/login`, body).then(res => {
-            alert('Login Successful!')
+            swal('Login Successful!', {buttons:false, timer:2000})
             setLoggedInUser(res.data[0].customer_id)
             document.getElementById('login/logout').textContent = 'Logout'
         })
-            .catch(err => alert("Sorry, we don't recognize that username or password. Please try again or register as a new customer."))
+            .catch(err => swal("Sorry, we don't recognize that username or password. Please try again or register as a new customer."))
     }
 
     const logout = () => {
