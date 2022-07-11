@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 import axios from 'axios'
 
 
-function Checkout({subtotal}) {
+function Checkout({subtotal, loggedInUser}) {
 
     const [showCheckout, setShowCheckout] = useState(false)
     const [firstName, setFirstName] = useState('')
@@ -18,9 +18,10 @@ function Checkout({subtotal}) {
     const [cardName, setCardName] = useState('')
     const [cardNumber, setCardNumber] = useState('')
     const [cardType, setCardType] = useState('')
-    // need to track and log cardType
     const [expiration, setExpiration] = useState('')
     const [ssn, setSSN] = useState('')
+
+console.log(cardType)
 
     let shipping = 0.00
     let total = subtotal + shipping
@@ -68,6 +69,9 @@ function Checkout({subtotal}) {
             case 'cc-number':
                 setCardNumber(e.target.value)
                 break;
+            case 'cc-type': 
+                setCardType(e.target.value)
+                break;
             case 'expiration':
                 setExpiration(e.target.value)
                 break;
@@ -80,7 +84,7 @@ function Checkout({subtotal}) {
     }
 
     const checkoutHandler = () => {
-        const body = {address, city, state, zipCode, phone, firstName, lastName, email, cardName, cardNumber, expiration, ssn}
+        const body = {loggedInUser, address, city, state, zipCode, phone, firstName, lastName, email, cardName, cardNumber, cardType, expiration, ssn}
         axios.post('/createShipment', body).then(res => res.data)
         axios.delete('/emptyCart').then(res => res.data)
         closeCheckout()
@@ -99,7 +103,7 @@ function Checkout({subtotal}) {
                 className='checkout-modal'>
                 <h1 className='modal-title'>You're Almost There!</h1>
                 <br />
-                <h2 className='text-xl'>Please give us your shipment details below</h2>
+                <h2 className='text-xl'>Please fill in your shipment and payment details below</h2>
                 <br />
                 <div className='flex flex-col ml-6'>
                     <div>
@@ -184,14 +188,14 @@ function Checkout({subtotal}) {
                                 onChange={shipmentDetails}></input>
                             <label className='checkout-label'>Card type:</label>
                             <form action='' method='post' className='space-x-4 sm:space-x-0 sm:flex sm:flex-col'>
-                                <label>Visa
-                                    <input type='radio' name='cc-type' value='Visa' /></label>
-                                <label>Mastercard
-                                    <input type='radio' name='cc-type' value='Mastercard' /></label>
-                                <label>Discover
-                                    <input type='radio' name='cc-type' value='Discover' /></label>
-                                <label>American Express
-                                    <input type='radio' name='cc-type' value='American Express' /></label>
+                                <label>
+                                    <input type='radio' name='cc-type' value='Visa' onChange={shipmentDetails} />Visa</label>
+                                <label>
+                                    <input type='radio' name='cc-type' value='Mastercard' onChange={shipmentDetails} />Mastercard</label>
+                                <label>
+                                    <input type='radio' name='cc-type' value='Discover' onChange={shipmentDetails} />Discover</label>
+                                <label>
+                                    <input type='radio' name='cc-type' value='American Express' onChange={shipmentDetails} />American Express</label>
                             </form>
                         </div>
                         <div className='flex flex-col'>
@@ -202,7 +206,7 @@ function Checkout({subtotal}) {
                                         className='checkout-input'
                                         name='expiration'
                                         type='text'
-                                        placeholder='mm/yyy'
+                                        placeholder='mm/yy'
                                         onChange={shipmentDetails}></input>
                                 </div>
                                 <div className='flex flex-col w-40'>

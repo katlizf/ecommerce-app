@@ -28,7 +28,7 @@ function CartPage({loggedInUser}) {
     }, [cartItem])
 
     return (
-        <div className='flex justify-center'>
+        <div className='flex justify-center min-h-screen'>
             <div className='flex flex-col'>
                 <h1 className='mt-20 mb-10 text-3xl sm:text-2xl'>Shopping Cart</h1>
                 <div className='flex flex-col justify-center items-center'>
@@ -40,7 +40,7 @@ function CartPage({loggedInUser}) {
                         <p>{subtotal.toFixed(2)}</p>
                     </div>
                 </div>                
-                <Checkout subtotal={subtotal} />
+                <Checkout subtotal={subtotal} loggedInUser={loggedInUser} />
             </div>
         </div>
     )
