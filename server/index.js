@@ -88,9 +88,11 @@ app.post('/createShipment', async (req, res) => {
         res.status(200)
 })
 
-app.delete('/emptyCart', async (req, res) => {
+app.delete('/emptyCart/:custId', async (req, res) => {
+    let {custId} = req.params
     await sequelize.query(`
-        DELETE FROM cart_items;`)
+        DELETE FROM cart_items
+        WHERE cart_items.customer = ${custId};`)
         res.status(200)
 })
 

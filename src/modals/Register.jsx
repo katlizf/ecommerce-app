@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import ReactModal from 'react-modal'
 import ReactDOM from 'react-dom'
 import axios from 'axios'
+import swal from "sweetalert"
 
 
 function Register({closeLogin}) {
@@ -11,6 +12,10 @@ function Register({closeLogin}) {
     const [lastName, setLastName] = useState('')
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const [validFirstName, setValidFirstName] = useState(false)
+    const [formErrors, setFormErrors] = useState({
+        firstName: ''
+    })
 
     const openRegister = () => {
         setShowRegister(true)
@@ -43,7 +48,7 @@ function Register({closeLogin}) {
         const body = {firstName, lastName, username, password}
         axios.post('/register', body).then(res => alert(res.data))
         closeRegister()
-        alert("Thanks for registering as a new customer! You'll now be able to login to your account.")
+        swal("Thanks for registering as a new customer! You'll now be able to login to your account.")
     }
 
     return (
@@ -61,6 +66,7 @@ function Register({closeLogin}) {
                         <input
                             name='fname'
                             type='text'
+                            value={firstName}
                             onChange={customerDetails}
                             className='login-input'></input>
                         <br />

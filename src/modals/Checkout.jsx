@@ -85,11 +85,13 @@ function Checkout({subtotal, loggedInUser}) {
 
     const checkoutHandler = () => {
         const body = {loggedInUser, address, city, state, zipCode, phone, firstName, lastName, email, cardName, cardNumber, cardType, expiration, ssn}
+        let custId = loggedInUser
+        console.log(loggedInUser)
         axios.post('/createShipment', body).then(res => res.data)
-        axios.delete('/emptyCart').then(res => res.data)
+        axios.delete(`/emptyCart/${custId}`).then(res => res.data)
         closeCheckout()
         refreshPage()
-        swal("Order submitted! You're order will ship out soon. Thanks for shopping with us today!")
+        swal("Order submitted!", {buttons:false, timer:6000})
     }
 
     return (
