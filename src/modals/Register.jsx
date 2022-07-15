@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom'
 import axios from 'axios'
 import swal from "sweetalert"
 
+// need form validation
 
 function Register({closeLogin}) {
 
@@ -12,10 +13,6 @@ function Register({closeLogin}) {
     const [lastName, setLastName] = useState('')
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const [validFirstName, setValidFirstName] = useState(false)
-    const [formErrors, setFormErrors] = useState({
-        firstName: ''
-    })
 
     const openRegister = () => {
         setShowRegister(true)

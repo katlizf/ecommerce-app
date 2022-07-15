@@ -43,6 +43,7 @@ function CartItemCard({data, updateSubtotal, loggedInUser}) {
         setQuantity(quantity - 1)
         updateSubtotal(-data.price)
     }
+    // need to add functionality so when quantity is 0 the product is deleted from the cart
 
     return (
         <div className='flex flex-row'>

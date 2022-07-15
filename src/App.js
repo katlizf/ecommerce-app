@@ -15,6 +15,7 @@ import Login from "./modals/Login"
 function App() {
 
     const [loggedInUser, setLoggedInUser] = useState(0)
+    // use state for addToCart, getCartProducts, deleteFromCart, and emptyCart requests
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
