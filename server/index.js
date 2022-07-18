@@ -8,7 +8,7 @@ const sequelize = require('./sequelize')
 
 app.use(express.json())
 app.use(cors())
-// app.use(express.static(path.resolve(__dirname, '../build')))
+app.use(express.static(path.resolve(__dirname, '../build')))
 
 
 app.get('/getTitles', async (req, res) => {
