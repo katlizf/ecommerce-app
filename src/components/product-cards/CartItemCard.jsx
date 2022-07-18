@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 import axios from 'axios'
 import {useDispatch, useSelector} from 'react-redux'
 import {increase, decrease} from '../../store/cart-reducer'
-import swal from 'sweetalert'
 
 
 function CartItemCard({data, updateSubtotal, loggedInUser}) {

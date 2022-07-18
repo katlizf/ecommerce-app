@@ -8,7 +8,7 @@ const sequelize = require('./sequelize')
 
 app.use(express.json())
 app.use(cors())
-app.use(express.static(path.resolve(__dirname, '../build')))
+// app.use(express.static(path.resolve(__dirname, '../build')))
 
 
 app.get('/getTitles', async (req, res) => {
@@ -111,10 +111,10 @@ app.post('/login', async (req, res) => {
 })
 
 app.post('/register', async (req, res) => {
-    let {username, password, firstName, lastName} = req.body
+    let {enteredUsername, enteredPassword, enteredFirstName, enteredLastName} = req.body
     await sequelize.query(`
         INSERT INTO customer (username, password, first_name, last_name)
-        VALUES ('${username}', '${password}', '${firstName}', '${lastName}');`)
+        VALUES ('${enteredUsername}', '${enteredPassword}', '${enteredFirstName}', '${enteredLastName}');`)
         res.status(200)
 })
 

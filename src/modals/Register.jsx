@@ -1,18 +1,72 @@
-import React, {useState} from 'react'
+import React, {useRef, useState} from 'react'
 import ReactModal from 'react-modal'
 import ReactDOM from 'react-dom'
 import axios from 'axios'
 import swal from "sweetalert"
 
-// need form validation
+// should style errors
+
+const isEmpty = value => value.trim() === ''
+
 
 function Register({closeLogin}) {
 
     const [showRegister, setShowRegister] = useState(false)
-    const [firstName, setFirstName] = useState('')
-    const [lastName, setLastName] = useState('')
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
+    const [inputsValidity, setInputsValidity] = useState({
+        firstName: true,
+        lastName: true,
+        username: true,
+        password: true
+    })
+
+    const firstNameInputRef = useRef()
+    const lastNameInputRef = useRef()
+    const usernameNameInputRef = useRef()
+    const passwordNameInputRef = useRef()
+
+
+    const confirmHandler = e => {
+        e.preventDefault()
+
+        const enteredFirstName = firstNameInputRef.current.value
+        const enteredLastName = lastNameInputRef.current.value
+        const enteredUsername = usernameNameInputRef.current.value
+        const enteredPassword = passwordNameInputRef.current.value
+
+        const enteredFirstNameIsValid = !isEmpty(enteredFirstName)
+        const enteredLastNameIsValid = !isEmpty(enteredLastName)
+        const enteredUsernameIsValid = !isEmpty(enteredUsername)
+        const enteredPasswordIsValid = !isEmpty(enteredPassword)
+
+        setInputsValidity({
+            firstName: enteredFirstNameIsValid,
+            lastName: enteredLastNameIsValid,
+            username: enteredUsernameIsValid,
+            password: enteredPasswordIsValid
+        })
+
+        const formIsValid = 
+            enteredFirstNameIsValid &&
+            enteredLastNameIsValid &&
+            enteredUsernameIsValid &&
+            enteredPasswordIsValid
+
+        if (!formIsValid) {
+            return
+        }
+
+        const registerHandler = () => {
+            const body = {enteredFirstName, enteredLastName, enteredUsername, enteredPassword}
+            axios.post('/register', body).then(res => alert(res.data))
+            closeRegister()
+            swal("Thanks for registering as a new customer! You'll now be able to login to your account.")
+        }
+
+        if (formIsValid) {
+            registerHandler()
+            return
+        }
+    }
 
     const openRegister = () => {
         setShowRegister(true)
@@ -20,32 +74,6 @@ function Register({closeLogin}) {
     const closeRegister = () => {
         setShowRegister(false)
         closeLogin()
-    }
-
-    const customerDetails = e => {
-        switch (e.target.name) {
-            case 'fname':
-                setFirstName(e.target.value)
-                break
-            case 'lname':
-                setLastName(e.target.value)
-                break
-            case 'username':
-                setUsername(e.target.value)
-                break
-            case 'password':
-                setPassword(e.target.value)
-                break
-            default:
-                e.preventDefault()
-        }
-    }
-
-    const registerHandler = () => {
-        const body = {firstName, lastName, username, password}
-        axios.post('/register', body).then(res => alert(res.data))
-        closeRegister()
-        swal("Thanks for registering as a new customer! You'll now be able to login to your account.")
     }
 
     return (
@@ -63,36 +91,41 @@ function Register({closeLogin}) {
                         <input
                             name='fname'
                             type='text'
-                            value={firstName}
-                            onChange={customerDetails}
+                            ref={firstNameInputRef}
                             className='login-input'></input>
+                            {!inputsValidity.firstName && <p>Please enter your first name</p>}
                         <br />
                         <label>Last Name: </label>
                         <input
                             name='lname'
                             type='text'
-                            onChange={customerDetails}
+                            ref={lastNameInputRef}
                             className='login-input'></input>
+                            {!inputsValidity.lastName && <p>Please enter your last name</p>}
                         <br />
                         <label>Username:</label>
                         <input
                             name='username'
                             type='text'
-                            onChange={customerDetails}
+                            ref={usernameNameInputRef}
                             className='login-input'></input>
+                            {!inputsValidity.username && <p>Please enter a username</p>}
                         <br />
                         <label>Password:</label>
                         <input
                             name='password'
                             type='password'
-                            onChange={customerDetails}
+                            ref={passwordNameInputRef}
                             className='login-input'></input>
+                            {!inputsValidity.password && <p>Please enter a password</p>}
                     </div>
                     <br />
                     <br />
                     <div className='align-modal-btns'>
                         <button className='modal-btns' onClick={closeRegister}>Cancel</button>
-                        <button className='modal-btns' onClick={registerHandler}>Submit</button>
+                        <button className='modal-btns' 
+                        onClick={confirmHandler}
+                        >Submit</button>
                     </div>
                 </div>
             </ReactModal>
