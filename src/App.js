@@ -16,6 +16,7 @@ function App() {
 
     const [loggedInUser, setLoggedInUser] = useState(0)
     // use state for addToCart, getCartProducts, deleteFromCart, and emptyCart requests
+    // need to persist loggedInUser upon refresh
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 

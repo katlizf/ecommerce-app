@@ -123,6 +123,7 @@ function Checkout({subtotal, loggedInUser}) {
             closeCheckout()
             refreshPage()
             swal("Order submitted!", {buttons:false, timer:6000})
+            // want to persist alert for longer before refresh
         }
 
         if (formIsValid) {

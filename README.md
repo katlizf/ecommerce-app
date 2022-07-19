@@ -1,6 +1,6 @@
 # Weebs-R-Us!
 
-An anime e-commerce web application where users can create an account to login/logout, browse items and add to cart, and purchase items.
+An anime e-commerce web application where users can create an account, login/logout of their account, browse items and add to cart, and purchase items.
 
 # Technologies Used
 
