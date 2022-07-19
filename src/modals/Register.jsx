@@ -93,7 +93,7 @@ function Register({closeLogin}) {
                             type='text'
                             ref={firstNameInputRef}
                             className='login-input'></input>
-                            {!inputsValidity.firstName && <p>Please enter your first name</p>}
+                            {!inputsValidity.firstName && <p className='invalid'>Please enter your first name</p>}
                         <br />
                         <label>Last Name: </label>
                         <input
@@ -101,7 +101,7 @@ function Register({closeLogin}) {
                             type='text'
                             ref={lastNameInputRef}
                             className='login-input'></input>
-                            {!inputsValidity.lastName && <p>Please enter your last name</p>}
+                            {!inputsValidity.lastName && <p className='invalid'>Please enter your last name</p>}
                         <br />
                         <label>Username:</label>
                         <input
@@ -109,7 +109,7 @@ function Register({closeLogin}) {
                             type='text'
                             ref={usernameNameInputRef}
                             className='login-input'></input>
-                            {!inputsValidity.username && <p>Please enter a username</p>}
+                            {!inputsValidity.username && <p className='invalid'>Please create a username</p>}
                         <br />
                         <label>Password:</label>
                         <input
@@ -117,7 +117,7 @@ function Register({closeLogin}) {
                             type='password'
                             ref={passwordNameInputRef}
                             className='login-input'></input>
-                            {!inputsValidity.password && <p>Please enter a password</p>}
+                            {!inputsValidity.password && <p className='invalid'>Please create a password</p>}
                     </div>
                     <br />
                     <br />

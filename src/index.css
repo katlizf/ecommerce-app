@@ -74,6 +74,7 @@
         margin-bottom: 10%;
         width: 26%;
         height: 70%;
+        overflow-y: scroll;
         background: white;
         padding: 2rem;
         border-width: 1.5px;
@@ -95,6 +96,10 @@
         border-color: #CCCCCC;
         border-style: solid;
         border-radius: 4px;
+    }
+    .invalid {
+        color: red;
+        font-size: .75rem;
     }
     .modal-title {
         font-size: 1.5rem;
