@@ -13,7 +13,7 @@ function ApparelPage({loggedInUser}) {
     }, [])
 
     return (
-        <div>
+        <div className='min-h-screen'>
             <FreeShipping />
             <FilterBar
                 allProducts={allProducts} setallProducts={setallProducts} loggedInUser={loggedInUser}/>

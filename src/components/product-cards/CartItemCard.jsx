@@ -46,14 +46,14 @@ function CartItemCard({data, updateSubtotal, loggedInUser}) {
 
     return (
         <div className='flex flex-row'>
-            <div className='flex flex-row justify-between pl-8 pt-6 border-b border-grey'>
+            <div className='flex flex-row justify-between pl-8 pt-6 border-b border-grey md:flex-col'>
                 <img
-                    className='h-44 w-44 mb-6'
+                    className='h-44 w-44 mb-6 md:h-32 md:w-32'
                     src={data.image}
                     alt={data.product_name} />
-                <div className='flex flex-col pt-9 pl-7 pr-9'>
+                <div className='flex flex-col pt-9 pl-7 pr-9 sm:pr-3'>
                     <p className='pb-4'>{data.product_name}</p>
-                    <div className='flex flex-row pr-36 space-x-3'>
+                    <div className='flex flex-row pr-36 space-x-3 md:pr-16 sm:pr-12'>
                         <p>{data.price}</p>
                         <button onClick={() => decreaseHandler()}>-</button>
                         <p>{quantity}</p>
@@ -61,7 +61,7 @@ function CartItemCard({data, updateSubtotal, loggedInUser}) {
                         <button className='bg-light-grey w-20 hover:text-red' onClick={() => deleteProduct(data)}>Remove</button>
                     </div>
                 </div>
-                <div className='flex justify-end pt-6'>
+                <div className='flex justify-end pt-6 sm:pt-0'>
                     <p>{totalProdPrice.toFixed(2)}</p>
                 </div>
             </div>

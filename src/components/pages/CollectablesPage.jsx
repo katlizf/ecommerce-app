@@ -13,7 +13,7 @@ function CollectablesPage({loggedInUser}) {
     }, [])
 
     return (
-        <div>
+        <div className='min-h-screen'>
             <AllYouNeed />
             <FilterBar allProducts={allProducts} setallProducts={setallProducts} loggedInUser={loggedInUser}/>
         </div>
