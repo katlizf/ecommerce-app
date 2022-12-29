@@ -14,7 +14,7 @@ import Login from "./modals/Login"
 
 function App() {
 
-    const [loggedInUser, setLoggedInUser] = useState(0)
+    const [loggedInUser, setLoggedInUser] = useState(2)
     // use state for addToCart, getCartProducts, deleteFromCart, and emptyCart requests
     // need to persist loggedInUser upon refresh
     const [username, setUsername] = useState('')
